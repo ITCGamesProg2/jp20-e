@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "ScreenManager.h"
+#include <iostream>
 
 class Game
 {
@@ -21,6 +22,7 @@ private:
 	void processEvents();
 	void update(sf::Time t_deltaTime);
 	void render();
+	void setUpFont();
 
 	// *** Objects ***
 	sf::RenderWindow m_window;
@@ -28,5 +30,7 @@ private:
 	ScreenManager m_screenManager;
 
 	bool m_exitGame;
+
+	sf::Font m_textFont;
 };
 #endif

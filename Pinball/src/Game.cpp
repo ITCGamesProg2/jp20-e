@@ -8,6 +8,8 @@ Game::Game() :
 	m_exitGame{ false }
 {
 	m_screenManager.setScreen(ScreenType::LICENSE);
+
+	setUpFont();
 }
 
 ///////////////////////////////////////////////////////////////
@@ -89,4 +91,20 @@ void Game::render()
 	m_screenManager.render(m_window);
 
 	m_window.display();
+}
+
+void Game::setUpFont()
+{
+	try
+	{
+		if (!m_textFont.loadFromFile("ASSETS//FONTS//arial.ttf"))
+		{
+			throw(std::exception("Error loading font"));
+		}
+	}
+	catch (const std::exception& t_exception)
+	{
+		std::cout << t_exception.what() << std::endl;
+	}
+	
 }
