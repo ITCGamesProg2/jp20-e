@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Game Screens">
+      <UniqueIdentifier>{c10c036c-e1a4-42ed-b7f9-5b0980039ac5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Screens">
+      <UniqueIdentifier>{b8f02d73-2ffc-45fc-9013-6a43fbf985ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Entities">
+      <UniqueIdentifier>{b8eeba64-bbf2-44f8-8de0-6ba52d35942b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Entities">
+      <UniqueIdentifier>{f6ae4d17-38cc-4de8-b04b-018d9c478cdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Xbox Controller">
+      <UniqueIdentifier>{0e0de5af-0628-41ef-9103-a110b4b79701}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Xbox Controller">
+      <UniqueIdentifier>{b201e357-1ba0-4de4-8408-e6ce5007c9a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game Systems">
+      <UniqueIdentifier>{2481a90f-0f58-4273-bc7c-bc1c69eb63d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Systems">
+      <UniqueIdentifier>{b61c00de-56c6-48d1-ba3b-d470b78a1e0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Observer/Subject">
+      <UniqueIdentifier>{3fed1526-421e-463b-810a-82caad2d3912}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Ball.cpp">
+      <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Board.cpp">
+      <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Flipper.cpp">
+      <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Credits.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Gameplay.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\HighScore.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Instructions.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\License.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MainMenu.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Settings.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Splash.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Xbox360Controller.cpp">
+      <Filter>Source Files\Xbox Controller</Filter>
+    </ClCompile>
+    <ClCompile Include="src\VFX.cpp">
+      <Filter>Source Files\Game Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Score.cpp">
+      <Filter>Source Files\Game Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Collisions.cpp">
+      <Filter>Source Files\Game Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio.cpp">
+      <Filter>Source Files\Game Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Subject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ScreenManager.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Ball.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Board.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Flipper.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Obstacle.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Credits.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Gameplay.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameScreen.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HighScore.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Instructions.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\License.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainMenu.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Settings.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Splash.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Xbox360Controller.h">
+      <Filter>Header Files\Xbox Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Score.h">
+      <Filter>Header Files\Game Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Collisions.h">
+      <Filter>Header Files\Game Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Audio.h">
+      <Filter>Header Files\Game Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\VFX.h">
+      <Filter>Header Files\Game Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Observer.h">
+      <Filter>Header Files\Observer/Subject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Subject.h">
+      <Filter>Header Files\Observer/Subject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BaseScreen.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ScreenManager.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
