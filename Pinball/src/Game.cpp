@@ -95,12 +95,16 @@ void Game::render()
 
 void Game::setUpFont()
 {
-	if (!m_textFont.loadFromFile("ASSETS//FONTS//arial.ttf"))
+	try
 	{
-		std::cout << "Error loading font" << std::endl;
+		if (!m_textFont.loadFromFile("ASSETS//FONTS//arial.ttf"))
+		{
+			throw(std::exception("Error loading font"));
+		}
 	}
-	else
+	catch (const std::exception& t_exception)
 	{
-		std::cout << "Font loaded" << std::endl;
+		std::cout << t_exception.what() << std::endl;
 	}
+	
 }
