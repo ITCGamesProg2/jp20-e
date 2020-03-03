@@ -40,6 +40,9 @@
     <Filter Include="Header Files\Observer/Subject">
       <UniqueIdentifier>{3fed1526-421e-463b-810a-82caad2d3912}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game Systems\Collisions">
+      <UniqueIdentifier>{541a34a9-a1cf-46a6-9971-3f809f1935db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ball.cpp">
@@ -149,9 +152,6 @@
     <ClInclude Include="include\Score.h">
       <Filter>Header Files\Game Systems</Filter>
     </ClInclude>
-    <ClInclude Include="include\Collisions.h">
-      <Filter>Header Files\Game Systems</Filter>
-    </ClInclude>
     <ClInclude Include="include\Audio.h">
       <Filter>Header Files\Game Systems</Filter>
     </ClInclude>
@@ -175,6 +175,12 @@
     </ClInclude>
     <ClInclude Include="include\GameEntity.h">
       <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Collisions.h">
+      <Filter>Header Files\Game Systems\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\tinyc2.h">
+      <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
