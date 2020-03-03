@@ -1,2 +1,3 @@
 Ben:
 Session 1 Start: 11:00 End: 11:25 (making starter classes) (02/03)
+Session 2 Start: 13:00 End: 13:40 (adding observer/subject base classes) (02/03)
