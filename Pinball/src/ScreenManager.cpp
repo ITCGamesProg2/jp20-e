@@ -1,6 +1,7 @@
 #include "ScreenManager.h"
 
 ScreenManager::ScreenManager(sf::Font& t_font) :
+	m_activeScreen{nullptr},
 	m_font{t_font}
 {
 	m_licenseScreen = new License(m_font);

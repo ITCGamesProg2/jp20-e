@@ -12,6 +12,18 @@ Game::Game() :
 	m_screenManager = new ScreenManager(m_font);
 
 	m_screenManager->setScreen(ScreenType::LICENSE);
+
+	temp_screenTypeVector =
+	{
+		ScreenType::LICENSE,
+		ScreenType::SPLASH,
+		ScreenType::MAIN_MENU,
+		ScreenType::GAMEPLAY,
+		ScreenType::INSTRUCTIONS,
+		ScreenType::HIGHSCORES,
+		ScreenType::SETTINGS,
+		ScreenType::CREDITS
+	};
 }
 
 ///////////////////////////////////////////////////////////////
@@ -66,6 +78,22 @@ void Game::processEvents()
 			{
 				m_exitGame = true;
 			}
+
+			// Move to the previous screen in the list. We use mod to avoid leaving the bounds of our array
+			if (sf::Keyboard::Left == event.key.code)
+			{
+				// If we're about to go below zero, go to the end of the list instead
+				(temp_screenIndex > 0) ? temp_screenIndex-- : temp_screenIndex = temp_NUM_SCREENS;
+
+				m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
+			}
+			// Move to the next screen in the list
+			if (sf::Keyboard::Right == event.key.code)
+			{
+				temp_screenIndex++;
+
+				m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
+			}
 		}
 
 		m_screenManager->processEvents(event);
@@ -110,5 +138,4 @@ void Game::loadFont()
 	{
 		std::cout << t_exception.what() << std::endl;
 	}
-	
 }
