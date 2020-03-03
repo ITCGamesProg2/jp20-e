@@ -1,7 +1,7 @@
 #pragma once
-#include "GameScreen.h"
+#include "BaseScreen.h"
 class Credits :
-	public GameScreen
+	public BaseScreen
 {
 };
 

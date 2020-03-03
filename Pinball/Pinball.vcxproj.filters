@@ -125,9 +125,6 @@
     <ClInclude Include="include\Gameplay.h">
       <Filter>Header Files\Game Screens</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameScreen.h">
-      <Filter>Header Files\Game Screens</Filter>
-    </ClInclude>
     <ClInclude Include="include\HighScore.h">
       <Filter>Header Files\Game Screens</Filter>
     </ClInclude>

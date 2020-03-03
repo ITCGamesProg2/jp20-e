@@ -170,7 +170,6 @@
     <ClInclude Include="include\Flipper.h" />
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\Gameplay.h" />
-    <ClInclude Include="include\GameScreen.h" />
     <ClInclude Include="include\HighScore.h" />
     <ClInclude Include="include\Instructions.h" />
     <ClInclude Include="include\License.h" />
