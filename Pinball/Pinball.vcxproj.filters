@@ -173,5 +173,8 @@
     <ClInclude Include="include\ScreenManager.h">
       <Filter>Header Files\Game Screens</Filter>
     </ClInclude>
+    <ClInclude Include="include\GameEntity.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
