@@ -7,9 +7,11 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game Window", sf::Style::Close },
 	m_exitGame{ false }
 {
-	m_screenManager.setScreen(ScreenType::LICENSE);
+	loadFont();
 
-	setUpFont();
+	m_screenManager = new ScreenManager(m_font);
+
+	m_screenManager->setScreen(ScreenType::LICENSE);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -66,7 +68,7 @@ void Game::processEvents()
 			}
 		}
 
-		m_screenManager.processEvents(event);
+		m_screenManager->processEvents(event);
 	}
 }
 
@@ -79,7 +81,7 @@ void Game::update(sf::Time t_deltaTime)
 		m_window.close();
 	}
 
-	m_screenManager.update(t_deltaTime);
+	m_screenManager->update(t_deltaTime);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -88,16 +90,18 @@ void Game::render()
 {
 	m_window.clear(sf::Color::White);
 
-	m_screenManager.render(m_window);
+	m_screenManager->render(m_window);
 
 	m_window.display();
 }
 
-void Game::setUpFont()
+///////////////////////////////////////////////////////////////
+
+void Game::loadFont()
 {
 	try
 	{
-		if (!m_textFont.loadFromFile("ASSETS//FONTS//arial.ttf"))
+		if (!m_font.loadFromFile("ASSETS//FONTS//arial.ttf"))
 		{
 			throw(std::exception("Error loading font"));
 		}

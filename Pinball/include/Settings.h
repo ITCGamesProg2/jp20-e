@@ -4,7 +4,7 @@ class Settings :
 	public BaseScreen
 {
 public:
-	Settings() = default;
+	Settings(sf::Font& t_font);
 	~Settings() = default;
 
 	/// <summary>
@@ -24,4 +24,10 @@ public:
 	/// </summary>
 	/// <param name="t_window">SF::RenderWindow to draw to</param>
 	void render(sf::RenderWindow& t_window) override;
+
+private:
+
+	sf::Font& m_font;
+
+	sf::Text m_text;
 };

@@ -22,15 +22,15 @@ private:
 	void processEvents();
 	void update(sf::Time t_deltaTime);
 	void render();
-	void setUpFont();
+	void loadFont();
 
 	// *** Objects ***
 	sf::RenderWindow m_window;
 
-	ScreenManager m_screenManager;
+	ScreenManager* m_screenManager;
 
 	bool m_exitGame;
 
-	sf::Font m_textFont;
+	sf::Font m_font;
 };
 #endif

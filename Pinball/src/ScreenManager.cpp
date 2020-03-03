@@ -1,5 +1,20 @@
 #include "ScreenManager.h"
 
+ScreenManager::ScreenManager(sf::Font& t_font) :
+	m_font{t_font}
+{
+	m_licenseScreen = new License(m_font);
+	m_splashScreen = new Splash(m_font);
+	m_mainMenuScreen = new MainMenu(m_font);
+	m_gameplayScreen = new Gameplay(m_font);
+	m_instructionsScreen = new Instructions(m_font);
+	m_highScoreScreen = new HighScore(m_font);
+	m_settingsScreen = new Settings(m_font);
+	m_creditsScreen = new Credits(m_font);
+}
+
+///////////////////////////////////////////////////////////////
+
 ScreenManager::~ScreenManager()
 {
 	delete m_licenseScreen;

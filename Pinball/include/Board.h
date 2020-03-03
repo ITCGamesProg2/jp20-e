@@ -5,4 +5,3 @@
 class Board : public GameEntity
 {
 };
-
