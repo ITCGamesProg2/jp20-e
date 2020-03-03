@@ -1,5 +1,8 @@
 #pragma once
-class Board
+
+#include "GameEntity.h"
+
+class Board : public GameEntity
 {
 };
 

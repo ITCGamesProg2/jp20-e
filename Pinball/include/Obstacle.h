@@ -1,5 +1,8 @@
 #pragma once
+
+#include "GameEntity.h"
+
 // Abstract class
-class Obstacle
+class Obstacle : public GameEntity
 {
 };

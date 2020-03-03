@@ -1,5 +1,7 @@
 #pragma once
-class Flipper
+
+#include "GameEntity.h"
+
+class Flipper : public GameEntity
 {
 };
-
