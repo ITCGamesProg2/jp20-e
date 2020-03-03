@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include <SFML/Graphics.hpp>
+#include "ScreenManager.h"
 
 class Game
 {
@@ -23,6 +24,8 @@ private:
 
 	// *** Objects ***
 	sf::RenderWindow m_window;
+
+	ScreenManager m_screenManager;
 
 	bool m_exitGame;
 };

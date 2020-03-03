@@ -7,7 +7,10 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game Window", sf::Style::Close },
 	m_exitGame{ false }
 {
+	m_screenManager.setScreen(ScreenType::LICENSE);
 }
+
+///////////////////////////////////////////////////////////////
 
 /// <summary>
 /// Default Destructor
@@ -15,6 +18,8 @@ Game::Game() :
 Game::~Game()
 {
 }
+
+///////////////////////////////////////////////////////////////
 
 /// <summary>
 /// Main run method
@@ -40,6 +45,8 @@ void Game::run()
 	}
 }
 
+///////////////////////////////////////////////////////////////
+
 void Game::processEvents()
 {
 	sf::Event event;
@@ -56,8 +63,12 @@ void Game::processEvents()
 				m_exitGame = true;
 			}
 		}
+
+		m_screenManager.processEvents(event);
 	}
 }
+
+///////////////////////////////////////////////////////////////
 
 void Game::update(sf::Time t_deltaTime)
 {
@@ -65,10 +76,17 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+
+	m_screenManager.update(t_deltaTime);
 }
+
+///////////////////////////////////////////////////////////////
 
 void Game::render()
 {
 	m_window.clear(sf::Color::White);
+
+	m_screenManager.render(m_window);
+
 	m_window.display();
 }
