@@ -1,5 +1,11 @@
 #include "License.h"
 
+void License::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void License::update(sf::Time t_dTime)
 {
 }

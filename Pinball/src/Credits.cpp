@@ -1,5 +1,11 @@
 #include "Credits.h"
 
+void Credits::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void Credits::update(sf::Time t_dTime)
 {
 }

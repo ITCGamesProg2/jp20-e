@@ -1,5 +1,11 @@
 #include "Settings.h"
 
+void Settings::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void Settings::update(sf::Time t_dTime)
 {
 }

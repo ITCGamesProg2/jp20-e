@@ -1,5 +1,11 @@
 #include "MainMenu.h"
 
+void MainMenu::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void MainMenu::update(sf::Time t_dTime)
 {
 }

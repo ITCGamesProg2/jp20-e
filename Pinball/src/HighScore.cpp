@@ -1,5 +1,11 @@
 #include "HighScore.h"
 
+void HighScore::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void HighScore::update(sf::Time t_dTime)
 {
 }

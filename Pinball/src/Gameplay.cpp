@@ -1,5 +1,11 @@
 #include "Gameplay.h"
 
+void Gameplay::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void Gameplay::update(sf::Time t_dTime)
 {
 }

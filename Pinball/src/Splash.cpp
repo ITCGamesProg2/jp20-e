@@ -1,5 +1,11 @@
 #include "Splash.h"
 
+void Splash::processEvents(sf::Event t_event)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
 void Splash::update(sf::Time t_dTime)
 {
 }

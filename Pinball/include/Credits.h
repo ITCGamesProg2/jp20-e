@@ -7,6 +7,12 @@ public:
 
 	Credits() = default;
 	~Credits() = default;
+	
+	/// <summary>
+	/// @brief Handles SFML events (keypress, mouseclick, etc.)
+	/// </summary>
+	/// <param name="t_event">sf::Event object to process</param>
+	void processEvents(sf::Event t_event) override;
 
 	/// <summary>
 	/// @brief Handles 60fps update loop for this screen
