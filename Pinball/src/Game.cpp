@@ -7,6 +7,18 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game Window", sf::Style::Close },
 	m_exitGame{ false }
 {
+	// Will generate an exception if level loading fails.
+	try
+	{
+		LevelLoader::load(currentLevel, m_level);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Level Loading failure." << std::endl;
+		std::cout << e.what() << std::endl;
+		throw e;
+	}
+
 	loadFont();
 
 	m_screenManager = new ScreenManager(m_font);
