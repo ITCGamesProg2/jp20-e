@@ -43,6 +43,9 @@
     <Filter Include="Header Files\Game Systems\Collisions">
       <UniqueIdentifier>{541a34a9-a1cf-46a6-9971-3f809f1935db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{d8b717f0-653e-4a93-be0d-de97b0c2cbe5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ball.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="src\ScreenManager.cpp">
       <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LevelLoader.cpp">
+      <Filter>Source Files\Game Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -182,5 +188,18 @@
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="include\LevelLoader.h">
+      <Filter>Header Files\Game Systems</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resources\LevelOne.yaml">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\labs19-EthanRennick\Class Labs (sfml stuff)\Project\SFML_Playground\lib\libyaml-cppmdd.lib">
+      <Filter>lib</Filter>
+    </Library>
   </ItemGroup>
 </Project>
