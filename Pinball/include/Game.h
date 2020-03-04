@@ -5,6 +5,7 @@
 #include "ScreenManager.h"
 #include <iostream>
 #include <array>
+#include "LevelLoader.h"
 
 class Game
 {
@@ -39,5 +40,10 @@ private:
 	bool m_exitGame;
 
 	sf::Font m_font;
+
+	// *** YAMl ***
+	LevelData m_level;
+	int currentLevel = 1;
+
 };
 #endif

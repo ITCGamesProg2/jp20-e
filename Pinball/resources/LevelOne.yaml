@@ -1,0 +1,13 @@
+background:
+   file: ./resources/images/Background.jpg # Sample comment
+flippers:
+   position: {x: 100, y: 100}
+   angle: 100
+ball:
+   position: {x: 400, y: 700}
+   velocity: {x: 0, y: 0}
+peg: 
+   - type: obstacle
+     position: {x: 100, y: 660}
+     rotation: 0
+
