@@ -5,7 +5,7 @@ class Credits :
 {
 public:
 
-	Credits() = default;
+	Credits(sf::Font& t_font);
 	~Credits() = default;
 	
 	/// <summary>
@@ -25,4 +25,10 @@ public:
 	/// </summary>
 	/// <param name="t_window">SF::RenderWindow to draw to</param>
 	void render(sf::RenderWindow& t_window) override;
+	
+private:
+
+	sf::Font& m_font;
+
+	sf::Text m_text;
 };

@@ -29,7 +29,8 @@ class ScreenManager
 public:
 
 
-	ScreenManager() = default;
+	ScreenManager(sf::Font& t_font);
+
 	~ScreenManager();
 
 	void setScreen(ScreenType t_screen);
@@ -54,14 +55,16 @@ public:
 
 private:
 
-	License* m_licenseScreen = new License();
-	Splash* m_splashScreen = new Splash();
-	MainMenu* m_mainMenuScreen = new MainMenu();
-	Gameplay* m_gameplayScreen = new Gameplay();
-	Instructions* m_instructionsScreen = new Instructions();
-	HighScore* m_highScoreScreen = new HighScore();
-	Settings* m_settingsScreen = new Settings();
-	Credits* m_creditsScreen = new Credits();
+	License* m_licenseScreen;
+	Splash* m_splashScreen;
+	MainMenu* m_mainMenuScreen;
+	Gameplay* m_gameplayScreen;
+	Instructions* m_instructionsScreen;
+	HighScore* m_highScoreScreen;
+	Settings* m_settingsScreen;
+	Credits* m_creditsScreen;
 
 	BaseScreen* m_activeScreen;
+
+	sf::Font& m_font;
 };

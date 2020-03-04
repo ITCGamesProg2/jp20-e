@@ -4,7 +4,7 @@ class HighScore :
 	public BaseScreen
 {
 public:
-	HighScore() = default;
+	HighScore(sf::Font& t_font);
 	~HighScore() = default;
 
 	/// <summary>
@@ -24,4 +24,10 @@ public:
 	/// </summary>
 	/// <param name="t_window">SF::RenderWindow to draw to</param>
 	void render(sf::RenderWindow& t_window) override;
+
+private:
+
+	sf::Font& m_font;
+
+	sf::Text m_text;
 };

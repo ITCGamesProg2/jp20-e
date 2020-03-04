@@ -4,7 +4,7 @@ class Splash :
 	public BaseScreen
 {
 public:
-	Splash() = default;
+	Splash(sf::Font& t_font);
 	~Splash() = default;
 
 	/// <summary>
@@ -24,4 +24,10 @@ public:
 	/// </summary>
 	/// <param name="t_window">SF::RenderWindow to draw to</param>
 	void render(sf::RenderWindow& t_window) override;
+
+private:
+
+	sf::Font& m_font;
+
+	sf::Text m_text;
 };
