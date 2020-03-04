@@ -191,7 +191,7 @@
     <None Include="resources\LevelOne.yaml" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\labs19-EthanRennick\Class Labs (sfml stuff)\Project\SFML_Playground\lib\libyaml-cppmdd.lib" />
+    <Library Include="lib\libyaml-cppmdd.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

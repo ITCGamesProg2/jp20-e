@@ -8,6 +8,8 @@ Gameplay::Gameplay(sf::Font& t_font) :
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setCharacterSize(32U);
 	m_text.setString("GAMEPLAY");
+
+	m_ball.setPosition(sf::Vector2f(300.0f, 0.0f));
 }
 
 ///////////////////////////////////////////////////////////////
@@ -20,6 +22,7 @@ void Gameplay::processEvents(sf::Event t_event)
 
 void Gameplay::update(sf::Time t_dTime)
 {
+	m_ball.update(t_dTime);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -27,4 +30,5 @@ void Gameplay::update(sf::Time t_dTime)
 void Gameplay::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_text);
+	m_ball.render(t_window);
 }

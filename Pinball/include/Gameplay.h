@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseScreen.h"
+#include "Ball.h"
 class Gameplay :
 	public BaseScreen
 {
@@ -30,4 +31,6 @@ private:
 	sf::Font& m_font;
 
 	sf::Text m_text;
+
+	Ball m_ball;
 };
