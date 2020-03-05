@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "tinyc2.h"
 // Abstract class
 class GameEntity
 {
@@ -13,6 +14,7 @@ public:
 
 	virtual const  sf::Vector2f getPosition() const = 0;
 
-
+protected:
+	sf::Vector2f m_position;
 
 };
