@@ -30,5 +30,5 @@ void Gameplay::update(sf::Time t_dTime)
 void Gameplay::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_text);
-	m_ball.render(t_window);
+	t_window.draw(m_ball.getShape());
 }
