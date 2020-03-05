@@ -14,10 +14,10 @@ public:
 	virtual void update(sf::Time t_dTime) override;
 
 	/// <summary>
-	/// @brief Calls the render in order to draw the ball
+	/// @brief Returns the ball shape
 	/// </summary>
-	/// <param name="t_window">SF::RenderWindow to draw to</param>
-	virtual void render(sf::RenderWindow& t_window) override;
+	/// <param name="t_window"></param>
+	sf::CircleShape getShape();
 
 	/// <summary>
 	/// @brief Setting position of the ball

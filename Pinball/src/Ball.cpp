@@ -20,6 +20,11 @@ void Ball::update(sf::Time t_dTime)
 	m_ball.move(m_velocity);
 }
 
+sf::CircleShape Ball::getShape()
+{
+	return m_ball;
+}
+
 ///////////////////////////////////////////////////////////////
  
 void Ball::setPosition(sf::Vector2f t_pos)
@@ -53,11 +58,4 @@ sf::Vector2f Ball::getVelocity()
 c2Circle Ball::getBounds()
 {
 	return m_boundingCircle;
-}
-
-///////////////////////////////////////////////////////////////
-
-void Ball::render(sf::RenderWindow& t_window)
-{
-	t_window.draw(m_ball);
 }
