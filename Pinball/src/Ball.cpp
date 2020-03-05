@@ -92,7 +92,7 @@ sf::Vector2f Ball::getVelocity()
 
 ///////////////////////////////////////////////////////////////
 
-c2Circle Ball::getBounds()
+c2Circle const& Ball::getBounds()
 {
 	return m_boundingBox;
 }
