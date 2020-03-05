@@ -28,6 +28,11 @@ public:
 	/// <param name="t_window">SF::RenderWindow to draw to</param>
 	void render(sf::RenderWindow& t_window) override;
 
+	/// <summary>
+	/// @brief Respawns the ball at its original position
+	/// </summary>
+	void respawnBall();
+
 private:
 
 	sf::Font& m_font;
@@ -36,4 +41,8 @@ private:
 
 	Ball m_ball;
 	Peg m_peg;
+
+	const sf::Vector2f ORIGINAL_BALL_POS{ 300.0f, 0.0f };
+	const sf::Vector2f ORIGINAL_BALL_VELOCITY{ 0.0f, 0.0f };
+	const float BOTTOM_OF_SCREEN{ 600.0f };
 };
