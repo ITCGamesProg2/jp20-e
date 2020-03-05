@@ -1,12 +1,34 @@
 #include "Peg.h"
 
-Peg::Peg()
+Peg::Peg() :
+	m_radius{3.0f}
+{
+	setupSprite();
+	setupBoundingBox();
+}
+
+///////////////////////////////////////////////////////////////
+
+void Peg::setupSprite()
 {
 	m_body.setFillColor(sf::Color::Black);
-	m_body.setRadius(3.0f);
+	m_body.setRadius(m_radius);
 
-	m_body.setOrigin({ 3.0f,3.0f });
+	m_body.setOrigin({ m_radius,m_radius });
 }
+
+///////////////////////////////////////////////////////////////
+
+void Peg::setupBoundingBox()
+{
+	// Set position
+	m_boundingBox.p.x = m_position.x;
+	m_boundingBox.p.y = m_position.y;
+
+	// Set radius
+	m_boundingBox.r = m_radius;
+}
+
 
 ///////////////////////////////////////////////////////////////
 
@@ -14,6 +36,9 @@ void Peg::setPosition(sf::Vector2f t_pos)
 {
 	m_position = t_pos;
 	m_body.setPosition(m_position);
+
+	m_boundingBox.p.x = m_position.x;
+	m_boundingBox.p.y = m_position.y;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -28,4 +53,11 @@ const sf::Vector2f Peg::getPosition() const
 const sf::CircleShape Peg::getSprite() const
 {
 	return m_body;
+}
+
+///////////////////////////////////////////////////////////////
+
+const c2Circle Peg::getBounds() const
+{
+	return m_boundingBox;
 }

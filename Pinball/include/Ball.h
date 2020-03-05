@@ -50,10 +50,15 @@ public:
 	c2Circle getBounds();
 
 private:
-	sf::CircleShape m_ball;
+
+	void setupSprite();
+	void setupBoundingBox();
+
+	sf::CircleShape m_body;
+	float m_radius;
 
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_gravity;
 
-	c2Circle m_boundingCircle = c2Circle();
+	c2Circle m_boundingBox = c2Circle();
 };
