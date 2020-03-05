@@ -3,9 +3,10 @@
 
 Ball::Ball()
 {
-
-	m_ball.setRadius(10);
+	m_ball.setRadius(10.0f);
 	m_ball.setFillColor(sf::Color::Black);
+
+	m_ball.setOrigin(10.0f, 10.0f);
 
 	m_velocity = { 00.0f, 0.0f };
 	m_gravity = { 0.0f, 9.8f };
@@ -19,6 +20,8 @@ void Ball::update(sf::Time t_dTime)
 	m_velocity.y += m_gravity.y * (t_dTime.asSeconds());
 	m_ball.move(m_velocity);
 }
+
+///////////////////////////////////////////////////////////////
 
 sf::CircleShape Ball::getShape()
 {

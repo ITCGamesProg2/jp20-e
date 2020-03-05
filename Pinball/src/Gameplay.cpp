@@ -10,6 +10,8 @@ Gameplay::Gameplay(sf::Font& t_font) :
 	m_text.setString("GAMEPLAY");
 
 	m_ball.setPosition(sf::Vector2f(300.0f, 0.0f));
+
+	m_peg.setPosition({ 300.0f, 400.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -31,4 +33,5 @@ void Gameplay::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_text);
 	t_window.draw(m_ball.getShape());
+	t_window.draw(m_peg.getSprite());
 }

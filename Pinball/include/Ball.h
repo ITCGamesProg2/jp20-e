@@ -11,7 +11,7 @@ public:
 	/// @brief Does the update of the ball
 	/// </summary>
 	/// <param name="t_dTime">time since last update</param>
-	virtual void update(sf::Time t_dTime) override;
+	void update(sf::Time t_dTime);
 
 	/// <summary>
 	/// @brief Returns the ball shape
