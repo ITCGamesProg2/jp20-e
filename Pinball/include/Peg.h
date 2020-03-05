@@ -12,7 +12,7 @@ public:
 	void setPosition(sf::Vector2f t_pos) override;
 	const sf::Vector2f getPosition() const override;
 	const sf::CircleShape getSprite() const;
-	const c2Circle getBounds() const;
+	c2Circle const& getBounds();
 
 private:
 

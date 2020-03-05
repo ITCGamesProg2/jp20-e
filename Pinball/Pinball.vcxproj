@@ -140,7 +140,7 @@
     <ClCompile Include="src\Audio.cpp" />
     <ClCompile Include="src\Ball.cpp" />
     <ClCompile Include="src\Board.cpp" />
-    <ClCompile Include="src\Collisions.cpp" />
+    <ClCompile Include="src\CollisionHandler.cpp" />
     <ClCompile Include="src\Credits.cpp" />
     <ClCompile Include="src\Flipper.cpp" />
     <ClCompile Include="src\Game.cpp" />
@@ -165,7 +165,7 @@
     <ClInclude Include="include\Ball.h" />
     <ClInclude Include="include\BaseScreen.h" />
     <ClInclude Include="include\Board.h" />
-    <ClInclude Include="include\Collisions.h" />
+    <ClInclude Include="include\CollisionHandler.h" />
     <ClInclude Include="include\Credits.h" />
     <ClInclude Include="include\Event.h" />
     <ClInclude Include="include\GameEntity.h" />

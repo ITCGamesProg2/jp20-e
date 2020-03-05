@@ -95,9 +95,6 @@
     <ClCompile Include="src\Score.cpp">
       <Filter>Source Files\Game Systems</Filter>
     </ClCompile>
-    <ClCompile Include="src\Collisions.cpp">
-      <Filter>Source Files\Game Systems</Filter>
-    </ClCompile>
     <ClCompile Include="src\Audio.cpp">
       <Filter>Source Files\Game Systems</Filter>
     </ClCompile>
@@ -109,9 +106,12 @@
     </ClCompile>
     <ClCompile Include="src\TableBuilder.cpp">
       <Filter>Source Files\Game Screens</Filter>
-	</ClCompile>
+    </ClCompile>
     <ClCompile Include="src\Peg.cpp">
       <Filter>Source Files\Game Entities\Obstacles</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CollisionHandler.cpp">
+      <Filter>Source Files\Game Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -181,20 +181,20 @@
     <ClInclude Include="include\GameEntity.h">
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
-    <ClInclude Include="include\Collisions.h">
-      <Filter>Header Files\Game Systems\Collisions</Filter>
-    </ClInclude>
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
     <ClInclude Include="include\TableBuilder.h">
       <Filter>Header Files\Game Screens</Filter>
-	</ClInclude>
+    </ClInclude>
     <ClInclude Include="include\Obstacle.h">
       <Filter>Header Files\Game Entities\Obstacles</Filter>
     </ClInclude>
     <ClInclude Include="include\Peg.h">
       <Filter>Header Files\Game Entities\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionHandler.h">
+      <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

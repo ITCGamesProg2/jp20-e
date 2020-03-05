@@ -30,6 +30,11 @@ void Gameplay::update(sf::Time t_dTime)
 	{
 		respawnBall();
 	}
+	
+	if (CollisionHandler::isColliding(m_ball.getBounds(), m_peg.getBounds()))
+	{
+		// Do something
+	}
 }
 
 ///////////////////////////////////////////////////////////////

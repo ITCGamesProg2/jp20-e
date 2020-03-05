@@ -29,7 +29,7 @@ public:
 	/// @brief Returns the position of the ball
 	/// </summary>
 	/// <returns></returns>
-	virtual const sf::Vector2f  getPosition() const override;
+	virtual const sf::Vector2f getPosition() const override;
 
 	/// <summary>
 	/// @brief Sets the velocity of the ball
@@ -47,7 +47,7 @@ public:
 	/// @brief Returns the bounds of the circle
 	/// </summary>
 	/// <returns></returns>
-	c2Circle getBounds();
+	c2Circle const& getBounds();
 
 private:
 

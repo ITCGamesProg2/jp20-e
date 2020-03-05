@@ -57,7 +57,7 @@ const sf::CircleShape Peg::getSprite() const
 
 ///////////////////////////////////////////////////////////////
 
-const c2Circle Peg::getBounds() const
+c2Circle const& Peg::getBounds()
 {
 	return m_boundingBox;
 }

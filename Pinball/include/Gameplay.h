@@ -1,4 +1,6 @@
 #pragma once
+
+#include "CollisionHandler.h"
 #include "BaseScreen.h"
 #include "Ball.h"
 #include "Peg.h"
