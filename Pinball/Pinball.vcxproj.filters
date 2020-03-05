@@ -101,6 +101,9 @@
     <ClCompile Include="src\ScreenManager.cpp">
       <Filter>Source Files\Game Screens</Filter>
     </ClCompile>
+    <ClCompile Include="src\TableBuilder.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
@@ -177,6 +180,9 @@
     </ClInclude>
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TableBuilder.h">
+      <Filter>Header Files\Game Screens</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

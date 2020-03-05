@@ -19,6 +19,7 @@ Game::Game() :
 		ScreenType::SPLASH,
 		ScreenType::MAIN_MENU,
 		ScreenType::GAMEPLAY,
+		ScreenType::TABLEBUILDER,
 		ScreenType::INSTRUCTIONS,
 		ScreenType::HIGHSCORES,
 		ScreenType::SETTINGS,

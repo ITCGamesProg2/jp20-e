@@ -10,6 +10,7 @@
 #include "HighScore.h"
 #include "Settings.h"
 #include "Credits.h"
+#include "TableBuilder.h"
 
 enum class ScreenType
 {
@@ -18,6 +19,7 @@ enum class ScreenType
 	SPLASH,
 	MAIN_MENU,
 	GAMEPLAY,
+	TABLEBUILDER,
 	INSTRUCTIONS,
 	HIGHSCORES,
 	SETTINGS,
@@ -63,7 +65,7 @@ private:
 	HighScore* m_highScoreScreen;
 	Settings* m_settingsScreen;
 	Credits* m_creditsScreen;
-
+	TableBuilder* m_tableBuilderScreen;
 	BaseScreen* m_activeScreen;
 
 	sf::Font& m_font;
