@@ -147,7 +147,6 @@
     <ClCompile Include="src\Gameplay.cpp" />
     <ClCompile Include="src\HighScore.cpp" />
     <ClCompile Include="src\Instructions.cpp" />
-    <ClCompile Include="src\LevelLoader.cpp" />
     <ClCompile Include="src\License.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
@@ -168,7 +167,6 @@
     <ClInclude Include="include\Credits.h" />
     <ClInclude Include="include\Event.h" />
     <ClInclude Include="include\GameEntity.h" />
-    <ClInclude Include="include\LevelLoader.h" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\Flipper.h" />
     <ClInclude Include="include\Game.h" />
@@ -186,12 +184,6 @@
     <ClInclude Include="include\tinyc2.h" />
     <ClInclude Include="include\VFX.h" />
     <ClInclude Include="include\Xbox360Controller.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\LevelOne.yaml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib\libyaml-cppmdd.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

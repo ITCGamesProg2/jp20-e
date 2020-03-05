@@ -7,18 +7,6 @@ Game::Game() :
 	m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game Window", sf::Style::Close },
 	m_exitGame{ false }
 {
-	// Will generate an exception if level loading fails.
-	try
-	{
-		LevelLoader::load(currentLevel, m_level);
-	}
-	catch (std::exception& e)
-	{
-		std::cout << "Level Loading failure." << std::endl;
-		std::cout << e.what() << std::endl;
-		//throw e;
-	}
-
 	loadFont();
 
 	m_screenManager = new ScreenManager(m_font);
@@ -138,16 +126,14 @@ void Game::render()
 ///////////////////////////////////////////////////////////////
 
 void Game::loadFont()
+try
 {
-	try
+	if (!m_font.loadFromFile("ASSETS//FONTS//arial.ttf"))
 	{
-		if (!m_font.loadFromFile("ASSETS//FONTS//arial.ttf"))
-		{
-			throw(std::exception("Error loading font"));
-		}
+		throw(std::exception("Error loading font"));
 	}
-	catch (const std::exception& t_exception)
-	{
-		std::cout << t_exception.what() << std::endl;
-	}
+}
+catch (const std::exception& t_exception)
+{
+	std::cout << t_exception.what() << std::endl;
 }

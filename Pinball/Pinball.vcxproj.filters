@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\Game Screens">
       <UniqueIdentifier>{c10c036c-e1a4-42ed-b7f9-5b0980039ac5}</UniqueIdentifier>
     </Filter>
@@ -42,9 +38,6 @@
     </Filter>
     <Filter Include="Header Files\Game Systems\Collisions">
       <UniqueIdentifier>{541a34a9-a1cf-46a6-9971-3f809f1935db}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="lib">
-      <UniqueIdentifier>{d8b717f0-653e-4a93-be0d-de97b0c2cbe5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -107,9 +100,6 @@
     </ClCompile>
     <ClCompile Include="src\ScreenManager.cpp">
       <Filter>Source Files\Game Screens</Filter>
-    </ClCompile>
-    <ClCompile Include="src\LevelLoader.cpp">
-      <Filter>Source Files\Game Systems</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -188,18 +178,5 @@
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
-    <ClInclude Include="include\LevelLoader.h">
-      <Filter>Header Files\Game Systems</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="resources\LevelOne.yaml">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="lib\libyaml-cppmdd.lib">
-      <Filter>lib</Filter>
-    </Library>
   </ItemGroup>
 </Project>
