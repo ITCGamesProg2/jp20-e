@@ -198,7 +198,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\labs19-EthanRennick\Class Labs (sfml stuff)\Project\SFML_Playground\lib\libyaml-cppmdd.lib">
+    <Library Include="lib\libyaml-cppmdd.lib">
       <Filter>lib</Filter>
     </Library>
   </ItemGroup>

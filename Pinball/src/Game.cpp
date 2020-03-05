@@ -16,7 +16,7 @@ Game::Game() :
 	{
 		std::cout << "Level Loading failure." << std::endl;
 		std::cout << e.what() << std::endl;
-		throw e;
+		//throw e;
 	}
 
 	loadFont();
