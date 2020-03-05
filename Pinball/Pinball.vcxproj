@@ -188,10 +188,13 @@
     <ClInclude Include="include\Xbox360Controller.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\LevelOne.yaml" />
+    <Library Include="lib\libyaml-cppmdd.lib" />
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\labs19-EthanRennick\Class Labs (sfml stuff)\Project\SFML_Playground\lib\libyaml-cppmdd.lib" />
+    <None Include="ASSETS\YAML\LevelOne.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="ASSETS\FONTS\arial.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

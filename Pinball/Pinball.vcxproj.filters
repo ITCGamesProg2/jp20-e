@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Header Files\Game Screens">
       <UniqueIdentifier>{c10c036c-e1a4-42ed-b7f9-5b0980039ac5}</UniqueIdentifier>
     </Filter>
@@ -43,8 +39,18 @@
     <Filter Include="Header Files\Game Systems\Collisions">
       <UniqueIdentifier>{541a34a9-a1cf-46a6-9971-3f809f1935db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib">
+    <Filter Include="Library Files">
       <UniqueIdentifier>{d8b717f0-653e-4a93-be0d-de97b0c2cbe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSETS">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ASSETS\YAML">
+      <UniqueIdentifier>{bebb93fa-69bc-4365-b6a9-e84d013851ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSETS\FONTS">
+      <UniqueIdentifier>{60face33-9db8-4f30-99fc-9dd44b69bacc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -193,13 +199,18 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\LevelOne.yaml">
-      <Filter>Resource Files</Filter>
-    </None>
+    <Library Include="lib\libyaml-cppmdd.lib">
+      <Filter>Library Files</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="..\..\labs19-EthanRennick\Class Labs (sfml stuff)\Project\SFML_Playground\lib\libyaml-cppmdd.lib">
-      <Filter>lib</Filter>
-    </Library>
+    <Font Include="ASSETS\FONTS\arial.ttf">
+      <Filter>ASSETS\FONTS</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ASSETS\YAML\LevelOne.yaml">
+      <Filter>ASSETS\YAML</Filter>
+    </None>
   </ItemGroup>
 </Project>
