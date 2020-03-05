@@ -156,6 +156,7 @@
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\Splash.cpp" />
     <ClCompile Include="src\Subject.cpp" />
+    <ClCompile Include="src\TableBuilder.cpp" />
     <ClCompile Include="src\VFX.cpp" />
     <ClCompile Include="src\Xbox360Controller.cpp" />
   </ItemGroup>
@@ -183,6 +184,7 @@
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\Splash.h" />
     <ClInclude Include="include\Subject.h" />
+    <ClInclude Include="include\TableBuilder.h" />
     <ClInclude Include="include\tinyc2.h" />
     <ClInclude Include="include\VFX.h" />
     <ClInclude Include="include\Xbox360Controller.h" />

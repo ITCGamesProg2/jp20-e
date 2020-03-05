@@ -107,6 +107,9 @@
     <ClCompile Include="src\ScreenManager.cpp">
       <Filter>Source Files\Game Screens</Filter>
     </ClCompile>
+    <ClCompile Include="src\TableBuilder.cpp">
+      <Filter>Source Files\Game Screens</Filter>
+	</ClCompile>
     <ClCompile Include="src\Peg.cpp">
       <Filter>Source Files\Game Entities\Obstacles</Filter>
     </ClCompile>
@@ -184,6 +187,9 @@
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="include\TableBuilder.h">
+      <Filter>Header Files\Game Screens</Filter>
+	</ClInclude>
     <ClInclude Include="include\Obstacle.h">
       <Filter>Header Files\Game Entities\Obstacles</Filter>
     </ClInclude>

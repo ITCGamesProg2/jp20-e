@@ -32,7 +32,7 @@ private:
 
 	// This code is used for switching between screens in order.
 	// Later on we will do this based on logic, rather than a list
-	static const int temp_NUM_SCREENS{ 8 };
+	static const int temp_NUM_SCREENS{ 9 };
 	std::array<ScreenType, temp_NUM_SCREENS> temp_screenTypeVector;
 	int temp_screenIndex{ 0 };
 

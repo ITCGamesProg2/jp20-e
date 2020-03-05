@@ -12,6 +12,7 @@ ScreenManager::ScreenManager(sf::Font& t_font) :
 	m_highScoreScreen = new HighScore(m_font);
 	m_settingsScreen = new Settings(m_font);
 	m_creditsScreen = new Credits(m_font);
+	m_tableBuilderScreen = new TableBuilder(m_font);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -26,6 +27,7 @@ ScreenManager::~ScreenManager()
 	delete m_highScoreScreen;
 	delete m_settingsScreen;
 	delete m_creditsScreen;
+	delete m_tableBuilderScreen;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -45,6 +47,9 @@ void ScreenManager::setScreen(ScreenType t_screen)
 		break;
 	case ScreenType::GAMEPLAY:
 		m_activeScreen = m_gameplayScreen;
+		break;
+	case ScreenType::TABLEBUILDER:
+		m_activeScreen = m_tableBuilderScreen;
 		break;
 	case ScreenType::INSTRUCTIONS:
 		m_activeScreen = m_instructionsScreen;

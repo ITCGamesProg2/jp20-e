@@ -1,20 +1,19 @@
 #pragma once
 #include "BaseScreen.h"
-#include "Ball.h"
-#include "Peg.h"
 
-class Gameplay :
+class TableBuilder :
 	public BaseScreen
 {
 public:
-	Gameplay(sf::Font& t_font);
-	~Gameplay() = default;
+
+	TableBuilder(sf::Font& t_font);
+	~TableBuilder() = default;
 
 	/// <summary>
 	/// @brief Handles SFML events (keypress, mouseclick, etc.)
 	/// </summary>
 	/// <param name="t_event">sf::Event object to process</param>
-	 void processEvents(sf::Event t_event) override;
+	void processEvents(sf::Event t_events) override;
 
 	/// <summary>
 	/// @brief Handles 60fps update loop for this screen
@@ -33,7 +32,5 @@ private:
 	sf::Font& m_font;
 
 	sf::Text m_text;
-
-	Ball m_ball;
-	Peg m_peg;
 };
+
