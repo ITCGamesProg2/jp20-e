@@ -13,6 +13,9 @@ public:
 	virtual void setPosition(sf::Vector2f t_pos) override;
 	virtual const sf::Vector2f  getPosition() const override;
 
+	void setVelocity(sf::Vector2f t_velocity);
+	sf::Vector2f getVelocity();
+
 private:
 	sf::CircleShape m_ball;
 

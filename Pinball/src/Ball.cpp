@@ -27,6 +27,16 @@ const sf::Vector2f Ball::getPosition() const
 	return m_ball.getPosition();
 }
 
+void Ball::setVelocity(sf::Vector2f t_velocity)
+{
+	m_velocity = t_velocity;
+}
+
+sf::Vector2f Ball::getVelocity()
+{
+	return m_velocity;
+}
+
 void Ball::render(sf::RenderWindow& t_window)
 {
 	t_window.draw(m_ball);
