@@ -3,12 +3,9 @@
 Peg::Peg()
 {
 	m_body.setFillColor(sf::Color::Black);
-}
+	m_body.setRadius(3.0f);
 
-///////////////////////////////////////////////////////////////
-
-void Peg::update(sf::Time t_dTime)
-{
+	m_body.setOrigin({ 3.0f,3.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -16,6 +13,7 @@ void Peg::update(sf::Time t_dTime)
 void Peg::setPosition(sf::Vector2f t_pos)
 {
 	m_position = t_pos;
+	m_body.setPosition(m_position);
 }
 
 ///////////////////////////////////////////////////////////////
