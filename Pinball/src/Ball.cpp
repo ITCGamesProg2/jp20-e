@@ -1,45 +1,79 @@
 #include "Ball.h"
 
-
-Ball::Ball()
+Ball::Ball() :
+	m_radius{10.0f}
 {
-	m_ball.setRadius(10.0f);
-	m_ball.setFillColor(sf::Color::Black);
-
-	m_ball.setOrigin(10.0f, 10.0f);
+	setupSprite();
+	setupBoundingBox();
 
 	m_velocity = { 00.0f, 0.0f };
 	m_gravity = { 0.0f, 9.8f };
+}
+
+
+///////////////////////////////////////////////////////////////
+
+void Ball::setupSprite()
+{
+	m_body.setFillColor(sf::Color::Black);
+	m_body.setRadius(m_radius);
+
+	m_body.setOrigin({ m_radius,m_radius });
+}
+
+///////////////////////////////////////////////////////////////
+
+void Ball::setupBoundingBox()
+{
+	// Set position
+	m_boundingBox.p.x = m_position.x;
+	m_boundingBox.p.y = m_position.y;
+
+	// Set radius
+	m_boundingBox.r = m_radius;
 }
 
 ///////////////////////////////////////////////////////////////
 
 void Ball::update(sf::Time t_dTime)
 {
+	// Update velocity
 	m_velocity.x += m_gravity.x * (t_dTime.asSeconds());
 	m_velocity.y += m_gravity.y * (t_dTime.asSeconds());
-	m_ball.move(m_velocity);
+	
+	// Update position
+	m_position += m_velocity;
+
+	// Update bounding box
+	m_boundingBox.p.x = m_position.x;
+	m_boundingBox.p.y = m_position.y;
 }
 
 ///////////////////////////////////////////////////////////////
 
 sf::CircleShape Ball::getShape()
 {
-	return m_ball;
+	m_body.setPosition(m_position);
+
+	return m_body;
 }
 
 ///////////////////////////////////////////////////////////////
  
 void Ball::setPosition(sf::Vector2f t_pos)
 {
-	m_ball.setPosition(t_pos);
+	m_position = t_pos;
+	m_body.setPosition(m_position);
+
+	m_boundingBox.p.x = m_position.x;
+	m_boundingBox.p.y = m_position.y;
 }
 
 ///////////////////////////////////////////////////////////////
 
 const sf::Vector2f Ball::getPosition() const
 {
-	return m_ball.getPosition();
+	return m_position;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -60,5 +94,5 @@ sf::Vector2f Ball::getVelocity()
 
 c2Circle Ball::getBounds()
 {
-	return m_boundingCircle;
+	return m_boundingBox;
 }
