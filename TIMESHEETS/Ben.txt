@@ -3,5 +3,6 @@ Session 1 Start: 11:00 End: 11:25 (making starter classes) (02/03)
 Session 2 Start: 13:00 End: 13:40 (adding observer/subject base classes) (02/03)
 Session 3 Start: 11:15 End: 12:20 (working on screen update/render story) (03/03)
 Session 4 Start: 13:30 End: 15:00 (working on screen switching) (03/03)
+Session 5 Start: 09:30 End: 10:00 (Refactoring game events) (05/03)
 
-Total time: 3:40
+Total time: 4:10
