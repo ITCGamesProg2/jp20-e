@@ -39,6 +39,12 @@
     <Filter Include="Header Files\Game Systems\Collisions">
       <UniqueIdentifier>{541a34a9-a1cf-46a6-9971-3f809f1935db}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Game Entities\Obstacles">
+      <UniqueIdentifier>{7c173f3c-5d69-48f4-80f9-9d5898427ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Game Entities\Obstacles">
+      <UniqueIdentifier>{65cba42b-20d1-4e95-8a4f-8cdda96cd343}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ball.cpp">
@@ -101,6 +107,9 @@
     <ClCompile Include="src\ScreenManager.cpp">
       <Filter>Source Files\Game Screens</Filter>
     </ClCompile>
+    <ClCompile Include="src\Peg.cpp">
+      <Filter>Source Files\Game Entities\Obstacles</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
@@ -113,9 +122,6 @@
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
     <ClInclude Include="include\Flipper.h">
-      <Filter>Header Files\Game Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Obstacle.h">
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
     <ClInclude Include="include\Credits.h">
@@ -177,6 +183,12 @@
     </ClInclude>
     <ClInclude Include="include\tinyc2.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Obstacle.h">
+      <Filter>Header Files\Game Entities\Obstacles</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Peg.h">
+      <Filter>Header Files\Game Entities\Obstacles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

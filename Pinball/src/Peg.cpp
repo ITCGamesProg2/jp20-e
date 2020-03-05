@@ -1,0 +1,33 @@
+#include "Peg.h"
+
+Peg::Peg()
+{
+	m_body.setFillColor(sf::Color::Black);
+}
+
+///////////////////////////////////////////////////////////////
+
+void Peg::update(sf::Time t_dTime)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
+void Peg::setPosition(sf::Vector2f t_pos)
+{
+	m_position = t_pos;
+}
+
+///////////////////////////////////////////////////////////////
+
+const sf::Vector2f Peg::getPosition() const
+{
+	return m_position;
+}
+
+///////////////////////////////////////////////////////////////
+
+const sf::CircleShape Peg::getSprite() const
+{
+	return m_body;
+}

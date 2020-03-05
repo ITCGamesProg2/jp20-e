@@ -13,6 +13,8 @@ public:
 
 	virtual const  sf::Vector2f getPosition() const = 0;
 
+protected:
 
+	sf::Vector2f m_position;
 
 };
