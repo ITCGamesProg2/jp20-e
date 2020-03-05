@@ -150,6 +150,7 @@
     <ClCompile Include="src\License.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
+    <ClCompile Include="src\Peg.cpp" />
     <ClCompile Include="src\Score.cpp" />
     <ClCompile Include="src\ScreenManager.cpp" />
     <ClCompile Include="src\Settings.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="include\License.h" />
     <ClInclude Include="include\MainMenu.h" />
     <ClInclude Include="include\Obstacle.h" />
+    <ClInclude Include="include\Peg.h" />
     <ClInclude Include="include\Score.h" />
     <ClInclude Include="include\ScreenManager.h" />
     <ClInclude Include="include\Settings.h" />

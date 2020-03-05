@@ -1,6 +1,8 @@
 #pragma once
 #include "BaseScreen.h"
 #include "Ball.h"
+#include "Peg.h"
+
 class Gameplay :
 	public BaseScreen
 {
@@ -33,4 +35,5 @@ private:
 	sf::Text m_text;
 
 	Ball m_ball;
+	Peg m_peg;
 };

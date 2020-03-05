@@ -11,7 +11,7 @@ public:
 	/// @brief Does the update of the ball
 	/// </summary>
 	/// <param name="t_dTime">time since last update</param>
-	virtual void update(sf::Time t_dTime) override;
+	void update(sf::Time t_dTime);
 
 	/// <summary>
 	/// @brief Returns the ball shape
@@ -50,10 +50,15 @@ public:
 	c2Circle getBounds();
 
 private:
-	sf::CircleShape m_ball;
+
+	void setupSprite();
+	void setupBoundingBox();
+
+	sf::CircleShape m_body;
+	float m_radius;
 
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_gravity;
 
-	c2Circle m_boundingCircle = c2Circle();
+	c2Circle m_boundingBox = c2Circle();
 };
