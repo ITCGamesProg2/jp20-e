@@ -9,7 +9,12 @@ class Observer
 public:
 	virtual ~Observer() {}
 
-	virtual void onNotify(const Obstacle& t_obstacle, Event t_event) = 0;
+	/// <summary>
+	/// @brief Do something when an event is revieved
+	/// </summary>
+	/// <param name="t_entity">Game entity the event applies to</param>
+	/// <param name="t_event">Type of event</param>
+	virtual void onNotify(const GameEntity& t_entity, Event t_event) = 0;
 	// E.g.
 	// switch(t_event)
 	// {

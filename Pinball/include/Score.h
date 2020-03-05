@@ -4,4 +4,3 @@
 class Score : public Observer
 {
 };
-
