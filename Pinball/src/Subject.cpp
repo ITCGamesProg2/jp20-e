@@ -20,10 +20,10 @@ void Subject::removeObserver(Observer* t_observer)
 
 ///////////////////////////////////////////////////////////////
 
-void Subject::notify(const GameEntity& t_obstacle, Event t_event)
+void Subject::notify(const GameEntity* t_entity, Event t_event)
 {
 	for (Observer* o : m_observers)
 	{
-		o->onNotify(t_obstacle, t_event);
+		o->onNotify(t_entity, t_event);
 	}
 }

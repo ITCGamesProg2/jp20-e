@@ -34,5 +34,5 @@ protected:
 	/// </summary>
 	/// <param name="t_obstacle">Obstacle this event relates to</param>
 	/// <param name="t_event">Type of event that occured</param>
-	void notify(const GameEntity& t_obstacle, Event t_event);
+	void notify(const GameEntity* t_entity, Event t_event);
 };
