@@ -1,7 +1,6 @@
 #pragma once
 
 #include "GameEntity.h"
-#include "tinyc2.h"
 
 // Abstract class
 class Obstacle : public GameEntity
