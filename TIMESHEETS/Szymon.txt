@@ -1,2 +1,6 @@
 Szymon:
-Session 1 Start: End:
+Session 1 Start: 14:30 End: 15:30
+Session 2 Start: 9:20 End: 9:30
+Session 3 Start: 10:15 End: 10:30
+
+Total Time: 1:25 
