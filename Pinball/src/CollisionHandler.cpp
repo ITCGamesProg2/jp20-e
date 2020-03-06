@@ -5,7 +5,10 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
 {
 	if (isColliding(t_ball.getBounds(), t_entityCircle))
 	{
-		getSurfaceOfContact(t_ball.getBounds().p, t_entityCircle.p);
+		sf::Vector2f surfaceOfContact{ getSurfaceOfContact(t_ball.getBounds().p, t_entityCircle.p) };
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), surfaceOfContact) };
+
+		t_ball.setVelocity(finalVelocity);
 	}
 }
 
@@ -85,7 +88,6 @@ bool CollisionHandler::isColliding(Circle t_ball, AABB t_entityAABB)
 			return true;
 		}
 	}
-
 	return false;
 }
 
