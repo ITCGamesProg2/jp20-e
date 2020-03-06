@@ -142,7 +142,7 @@ sf::Vector2f CollisionHandler::getReboundVector(sf::Vector2f t_velocity, sf::Vec
 	// Rotate velocity by that angle
 	thor::rotate(t_velocity, -angle);
 
-	t_velocity.y *= -1.0f;
+	t_velocity.y *= -0.8f;
 
 	// Rotate velocity back
 	thor::rotate(t_velocity, angle);
