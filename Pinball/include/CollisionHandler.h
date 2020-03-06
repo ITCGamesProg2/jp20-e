@@ -1,8 +1,39 @@
 #pragma once
 
+#include <Thor/Vectors.hpp>
 #include "Subject.h"
-#include "GameEntity.h"
-#include "tinyc2.h"
+
+class GameEntity;
+class Ball;
+
+struct CollisionBox {};
+
+struct Circle : public CollisionBox
+{
+	float x;
+	float y;
+	float r;
+};
+
+///////////////////////////////////////////////////////////////
+
+struct Line : public CollisionBox
+{
+	float p1;
+	float p2;
+};
+
+///////////////////////////////////////////////////////////////
+
+struct AABB : public CollisionBox
+{
+	float x;
+	float y;
+	float w;
+	float h;
+};
+
+///////////////////////////////////////////////////////////////
 
 class CollisionHandler : public Subject
 {
@@ -11,16 +42,20 @@ public:
 	CollisionHandler() = default;
 	~CollisionHandler() = default;
 
-	static bool isColliding(c2AABB const&, c2Capsule const&);
-	static bool isColliding(c2AABB const&, c2Circle const&);
-	static bool isColliding(c2AABB const&, c2Poly const&);
-	static bool isColliding(c2Capsule const&, c2Circle const&);
-	static bool isColliding(c2Capsule const&, c2Poly const&);
-	static bool isColliding(c2Circle const&, c2Poly const&);
+	static bool isColliding(Circle t_ball, Circle t_entityCircle);
+	static bool isColliding(Circle t_ball, AABB t_entityAABB);
+	static bool isColliding(Circle t_ball, Line t_entityLine);
 
-	// Self referential
-	static bool isColliding(c2Circle const&, c2Circle const&);
-	static bool isColliding(c2AABB const&, c2AABB const&);
-	static bool isColliding(c2Capsule const&, c2Capsule const&);
-	static bool isColliding(c2Poly const&, c2Poly const&);
+private:
+
+	/// <summary>
+	/// @brief Get the distance between two points in 2D
+	/// </summary>
+	/// <param name="t_p1">First point</param>
+	/// <param name="t_p2">Second point</param>
+	/// <returns>length as a float</returns>
+	static float getDistance(sf::Vector2f t_p1, sf::Vector2f t_p2);
 };
+
+#include "GameEntity.h"
+#include "Ball.h"

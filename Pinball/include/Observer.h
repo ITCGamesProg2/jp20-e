@@ -1,8 +1,9 @@
 #pragma once
 // Abstract Class
 
-#include "Obstacle.h"
 #include "Event.h"
+
+class GameEntity;
 
 class Observer
 {
@@ -29,3 +30,5 @@ public:
 	// }
 private:
 };
+
+#include "GameEntity.h"

@@ -185,7 +185,6 @@
     <ClInclude Include="include\Splash.h" />
     <ClInclude Include="include\Subject.h" />
     <ClInclude Include="include\TableBuilder.h" />
-    <ClInclude Include="include\tinyc2.h" />
     <ClInclude Include="include\VFX.h" />
     <ClInclude Include="include\Xbox360Controller.h" />
   </ItemGroup>
