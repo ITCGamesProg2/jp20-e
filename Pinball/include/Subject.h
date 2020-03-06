@@ -1,10 +1,11 @@
 #pragma once
 // Abstract class
 
-#include "Observer.h"
 #include "Event.h"
-#include "Obstacle.h"
 #include <vector>
+
+class Observer;
+class GameEntity;
 
 class Subject
 {
@@ -36,3 +37,5 @@ protected:
 	/// <param name="t_event">Type of event that occured</param>
 	void notify(const GameEntity* t_entity, Event t_event);
 };
+
+#include "Observer.h"

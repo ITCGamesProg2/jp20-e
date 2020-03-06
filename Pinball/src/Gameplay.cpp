@@ -11,7 +11,7 @@ Gameplay::Gameplay(sf::Font& t_font) :
 
 	m_ball.setPosition(ORIGINAL_BALL_POS);
 
-	m_peg.setPosition({ 300.0f, 400.0f });
+	m_peg.setPosition({ 301.0f, 400.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -31,10 +31,7 @@ void Gameplay::update(sf::Time t_dTime)
 		respawnBall();
 	}
 	
-	if (CollisionHandler::isColliding(m_ball.getBounds(), m_peg.getBounds()))
-	{
-		// Do something
-	}
+	CollisionHandler::resolveCollision(m_ball, m_peg.getBounds());
 }
 
 ///////////////////////////////////////////////////////////////

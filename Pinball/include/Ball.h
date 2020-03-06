@@ -47,7 +47,7 @@ public:
 	/// @brief Returns the bounds of the circle
 	/// </summary>
 	/// <returns></returns>
-	c2Circle const& getBounds();
+	Circle const& getBounds() const override;
 
 private:
 
@@ -60,5 +60,5 @@ private:
 	sf::Vector2f m_velocity;
 	sf::Vector2f m_gravity;
 
-	c2Circle m_boundingBox = c2Circle();
+	Circle m_boundingBox;
 };

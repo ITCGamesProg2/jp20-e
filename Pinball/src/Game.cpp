@@ -4,7 +4,7 @@
 /// Default Constructor
 /// </summary>
 Game::Game() :
-	m_window{ sf::VideoMode{ 800, 600, 32 }, "SFML Game Window", sf::Style::Close },
+	m_window{ sf::VideoMode{ 600, 900, 32 }, "SFML Game Window", sf::Style::Close },
 	m_exitGame{ false }
 {
 	loadFont();

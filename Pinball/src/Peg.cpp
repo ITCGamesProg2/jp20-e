@@ -22,13 +22,11 @@ void Peg::setupSprite()
 void Peg::setupBoundingBox()
 {
 	// Set position
-	m_boundingBox.p.x = m_position.x;
-	m_boundingBox.p.y = m_position.y;
+	m_boundingBox.p = m_position;
 
 	// Set radius
 	m_boundingBox.r = m_radius;
 }
-
 
 ///////////////////////////////////////////////////////////////
 
@@ -37,8 +35,7 @@ void Peg::setPosition(sf::Vector2f t_pos)
 	m_position = t_pos;
 	m_body.setPosition(m_position);
 
-	m_boundingBox.p.x = m_position.x;
-	m_boundingBox.p.y = m_position.y;
+	m_boundingBox.p = m_position;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -50,14 +47,15 @@ const sf::Vector2f Peg::getPosition() const
 
 ///////////////////////////////////////////////////////////////
 
-const sf::CircleShape Peg::getSprite() const
+sf::CircleShape Peg::getSprite()
 {
+	m_body.setPosition(m_position);
 	return m_body;
 }
 
 ///////////////////////////////////////////////////////////////
 
-c2Circle const& Peg::getBounds()
+Circle const& Peg::getBounds() const
 {
 	return m_boundingBox;
 }
