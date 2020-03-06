@@ -9,6 +9,8 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
 		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), surfaceOfContact) };
 
 		t_ball.setVelocity(finalVelocity);
+
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f ));
 	}
 }
 
