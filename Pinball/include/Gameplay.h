@@ -4,6 +4,7 @@
 #include "BaseScreen.h"
 #include "Ball.h"
 #include "Peg.h"
+#include <vector>
 
 class Gameplay :
 	public BaseScreen
@@ -42,9 +43,9 @@ private:
 	sf::Text m_text;
 
 	Ball m_ball;
-	Peg m_peg;
+	std::vector<Peg> m_pegs;
 
 	const sf::Vector2f ORIGINAL_BALL_POS{ 300.0f, 0.0f };
 	const sf::Vector2f ORIGINAL_BALL_VELOCITY{ 0.0f, 0.0f };
-	const float BOTTOM_OF_SCREEN{ 600.0f };
+	const float BOTTOM_OF_SCREEN{ 900.0f };
 };
