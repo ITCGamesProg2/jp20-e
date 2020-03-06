@@ -4,5 +4,5 @@ Session 2 Start: 9:20 End: 9:30
 Session 3 Start: 10:15 End: 10:30
 Session 4 Start: 13:40 End: 14:05
 Session 5 Start: 14:40 End: 14:50
-
-Total Time: 2:00
+Session 6 Start: 12:00 End: 12:40
+Total Time: 2:40

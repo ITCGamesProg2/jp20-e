@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseScreen.h"
+#include <iostream>
 class License :
 	public BaseScreen
 {
@@ -28,6 +29,11 @@ public:
 private:
 
 	sf::Font& m_font;
-
 	sf::Text m_text;
+	sf::Text m_text2;
+
+	sf::CircleShape m_ball;
+
+	sf::RectangleShape m_background;
+	sf::Texture m_texture;
 };
