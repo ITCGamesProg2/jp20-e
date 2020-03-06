@@ -1,1 +1,58 @@
 #include "Flipper.h"
+
+Flipper::Flipper() : 
+	m_width{100.0f},
+	m_height{20.0f}
+{
+	setupSprite();
+}
+
+///////////////////////////////////////////////////////////////
+
+void Flipper::setupSprite()
+{
+	m_body.setSize({ m_width, m_height });
+	m_body.setFillColor(sf::Color::Black);
+}
+
+///////////////////////////////////////////////////////////////
+
+void Flipper::setupBoundingBox()
+{
+}
+
+///////////////////////////////////////////////////////////////
+
+void Flipper::update(sf::Time t_dTime)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
+sf::RectangleShape Flipper::getShape()
+{
+	m_body.setPosition(m_position);
+	return m_body;
+}
+
+///////////////////////////////////////////////////////////////
+
+void Flipper::setPosition(sf::Vector2f t_pos)
+{
+	m_position = t_pos;
+}
+
+///////////////////////////////////////////////////////////////
+
+const sf::Vector2f Flipper::getPosition() const
+{
+	return m_position;
+}
+
+///////////////////////////////////////////////////////////////
+
+AABB const& Flipper::getBounds() const
+{
+	return AABB();
+	// TODO: insert return statement here
+}

@@ -25,6 +25,8 @@ Gameplay::Gameplay(sf::Font& t_font) :
 
 		offset = (offset == 0.0f) ? 25.0f : 0.0f;
 	}
+
+	m_flipper.setPosition({ 100.0f, 850.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -61,6 +63,8 @@ void Gameplay::render(sf::RenderWindow& t_window)
 	{
 		t_window.draw(p.getSprite());
 	}
+
+	t_window.draw(m_flipper.getShape());
 }
 
 ///////////////////////////////////////////////////////////////

@@ -2,6 +2,7 @@
 
 #include "CollisionHandler.h"
 #include "BaseScreen.h"
+#include "Flipper.h"
 #include "Ball.h"
 #include "Peg.h"
 #include <vector>
@@ -41,6 +42,8 @@ private:
 	sf::Font& m_font;
 
 	sf::Text m_text;
+
+	Flipper m_flipper;
 
 	Ball m_ball;
 	std::vector<Peg> m_pegs;
