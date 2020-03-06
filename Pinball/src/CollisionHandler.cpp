@@ -1,6 +1,36 @@
 #include "CollisionHandler.h"
 
 
+void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
+{
+	if (isColliding(t_ball.getBounds(), t_entityCircle))
+	{
+		getSurfaceOfContact(t_ball.getBounds().p, t_entityCircle.p);
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
+void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB)
+{
+	if (isColliding(t_ball.getBounds(), t_entityAABB))
+	{
+
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
+void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine)
+{
+	if (isColliding(t_ball.getBounds(), t_entityLine))
+	{
+
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
 bool CollisionHandler::isColliding(Circle t_ball, Circle t_entityCircle)
 {
 	// If the sum of the radii is greater than their distance, return true
@@ -78,46 +108,44 @@ bool CollisionHandler::isColliding(Circle t_ball, Line t_entityLine)
 	// Rotate line back to zero
 	thor::rotate(t_entityLine.p2, -angle);
 
-	// Rotate velocity along with line
-	//thor::rotate(m_ball.velocity, -angle);
-
 	// Rotate ball along with our frame of reference
 	thor::rotate(t_ball.p, -angle);
-
-	// CHECK COLLISIONS
-	bool colliding{ false };
 
 	// If we align with the line along the x coordinate
 	if (t_ball.p.x + t_ball.r > 0.0f && t_ball.p.x - t_ball.r < t_entityLine.p2.x)
 	{
 		if (t_ball.p.y - t_ball.r <= 0.0f && t_ball.p.y + t_ball.r >= 0.0f)
 		{
-			//colliding = true;
 			return true;
 		}
 	}
 
 	return false;
+}
 
-	//if (colliding)
-	//{
-	//	m_ball.velocity.y *= E;
-	//	m_ball.pos += thor::unitVector(m_ball.velocity);
-	//	//m_ball.body.setFillColor((colliding) ? s)f::Color::Blue : sf::Color::Red);
-	//}
+///////////////////////////////////////////////////////////////
 
-	//// Rotate velocity back
-	//thor::rotate(m_ball.velocity, angle);
+sf::Vector2f CollisionHandler::getSurfaceOfContact(sf::Vector2f t_ball, sf::Vector2f t_entity)
+{
+	return thor::perpendicularVector(t_entity - t_ball);
+}
 
-	//// Rotate line back
-	//thor::rotate(m_line[1].position, angle);
+///////////////////////////////////////////////////////////////
 
-	//// Move ball back to original position
-	//m_ball.pos += offset;
+sf::Vector2f CollisionHandler::getReboundVector(sf::Vector2f t_velocity, sf::Vector2f t_surfaceOfContact)
+{
+	// Get angle from origin
+	float angle = thor::polarAngle(t_surfaceOfContact);
 
-	//// Return line back to original position
-	//m_line[0].position += offset;
-	//m_line[1].position += offset;
+	// Rotate velocity by that angle
+	thor::rotate(t_velocity, -angle);
+
+	t_velocity.y *= -1.0f;
+
+	// Rotate velocity back
+	thor::rotate(t_velocity, angle);
+
+	return t_velocity;
 }
 
 ///////////////////////////////////////////////////////////////
