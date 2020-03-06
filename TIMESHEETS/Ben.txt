@@ -6,6 +6,6 @@ Session 4 Start: 13:30 End: 15:00 (working on screen switching) (03/03)
 Session 5 Start: 09:30 End: 10:00 (Refactoring game events) (05/03)
 Session 6 Start: 13:05 End: 14:05 (Adding collisions and drawing to obstacle) (05/03)
 Session 7 Start: 17:30 End: 18:00 (Implementing collision handler) (05/03)
-Session 8 Start: 11:20 End: 12:25 (Refactoring collisions) (06/03)
+Session 8 Start: 11:20 End: 12:45 (Refactoring collisions) (06/03)
 
-Total time: 6:45
+Total time: 7:05

@@ -10,8 +10,7 @@ struct CollisionBox {};
 
 struct Circle : public CollisionBox
 {
-	float x;
-	float y;
+	sf::Vector2f p;
 	float r;
 };
 
@@ -19,16 +18,15 @@ struct Circle : public CollisionBox
 
 struct Line : public CollisionBox
 {
-	float p1;
-	float p2;
+	sf::Vector2f p1;
+	sf::Vector2f p2;
 };
 
 ///////////////////////////////////////////////////////////////
 
 struct AABB : public CollisionBox
 {
-	float x;
-	float y;
+	sf::Vector2f p;
 	float w;
 	float h;
 };
