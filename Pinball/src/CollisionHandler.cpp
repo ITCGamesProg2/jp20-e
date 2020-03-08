@@ -34,7 +34,11 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine)
 {
 	if (isColliding(t_ball.getBounds(), t_entityLine))
 	{
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {t_entityLine.p2 - t_entityLine.p1}) };
 
+		t_ball.setVelocity(finalVelocity);
+
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f));
 	}
 }
 

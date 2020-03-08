@@ -9,6 +9,6 @@ Session 7 Start: 17:30 End: 18:00 (Implementing collision handler) (05/03)
 Session 8 Start: 11:20 End: 12:45 (Refactoring collisions) (06/03)
 Session 9 Start: 14:00 End: 15:20 (Perfecting circle/circle collisions) (06/03)
 Session 10 Start: 22:55 End: 23:10 (Implementing drawing flipper story) (06/03)
-Session 11 Start: 12:00 End: 12:20 (Implementing AABB collisions) (08/03)
+Session 11 Start: 12:00 End: 12:25 (Implementing AABB collisions) (08/03)
 
-Total time: 9:00
+Total time: 9:05

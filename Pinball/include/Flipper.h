@@ -34,10 +34,10 @@ public:
 	virtual const sf::Vector2f getPosition() const override;
 
 	/// <summary>
-	/// @brief Returns the bounds of the circle
+	/// @brief Returns the bounds of our line
 	/// </summary>
 	/// <returns></returns>
-	AABB const& getBounds() const override;
+	Line const& getBounds() const override;
 
 private:
 
@@ -49,5 +49,8 @@ private:
 	float m_width;
 	float m_height;
 
-	AABB m_boundingBox;
+	// How many radians rotated off horizontal are we
+	float m_rotation;
+
+	Line m_boundingBox;
 };
