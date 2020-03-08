@@ -5,6 +5,7 @@ Flipper::Flipper() :
 	m_height{20.0f}
 {
 	setupSprite();
+	setupBoundingBox();
 }
 
 ///////////////////////////////////////////////////////////////
@@ -19,12 +20,15 @@ void Flipper::setupSprite()
 
 void Flipper::setupBoundingBox()
 {
+	m_boundingBox.w = m_width;
+	m_boundingBox.h = m_height;
 }
 
 ///////////////////////////////////////////////////////////////
 
 void Flipper::update(sf::Time t_dTime)
 {
+	m_boundingBox.p = m_position;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -40,6 +44,7 @@ sf::RectangleShape Flipper::getShape()
 void Flipper::setPosition(sf::Vector2f t_pos)
 {
 	m_position = t_pos;
+	m_boundingBox.p = m_position;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -53,6 +58,5 @@ const sf::Vector2f Flipper::getPosition() const
 
 AABB const& Flipper::getBounds() const
 {
-	return AABB();
-	// TODO: insert return statement here
+	return m_boundingBox;
 }
