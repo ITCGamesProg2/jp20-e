@@ -4,4 +4,3 @@
 class VFX : public Observer
 {
 };
-
