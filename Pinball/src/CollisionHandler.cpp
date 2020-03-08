@@ -20,7 +20,11 @@ void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB)
 {
 	if (isColliding(t_ball.getBounds(), t_entityAABB))
 	{
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), sf::Vector2f{1.0f,0.0f} )};
 
+		t_ball.setVelocity(finalVelocity);
+
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f));
 	}
 }
 
@@ -30,7 +34,11 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine)
 {
 	if (isColliding(t_ball.getBounds(), t_entityLine))
 	{
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {t_entityLine.p2 - t_entityLine.p1}) };
 
+		t_ball.setVelocity(finalVelocity);
+
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f));
 	}
 }
 
@@ -67,7 +75,7 @@ bool CollisionHandler::isColliding(Circle t_ball, AABB t_entityAABB)
 	Circle innerCircle(outerCircle);
 
 	// half of the longest axis, draw a circle inside our box
-	innerCircle.r = (std::max(t_entityAABB.w, t_entityAABB.h) / 2.0f);
+	innerCircle.r = (std::min(t_entityAABB.w, t_entityAABB.h) / 2.0f);
 
 	// if we're colliding with the inner circle, we're definitely colliding with the AABB
 	if (isColliding(t_ball, innerCircle))

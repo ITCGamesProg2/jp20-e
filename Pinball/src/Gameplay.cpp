@@ -13,7 +13,7 @@ Gameplay::Gameplay(sf::Font& t_font) :
 
 	float offset{ 0.0f };
 
-	for (int i = 0; i < 10; i++)
+	/*for (int i = 0; i < 10; i++)
 	{
 		for (int j = 0; j < 10; j++)
 		{
@@ -24,9 +24,9 @@ Gameplay::Gameplay(sf::Font& t_font) :
 		}
 
 		offset = (offset == 0.0f) ? 25.0f : 0.0f;
-	}
+	}*/
 
-	m_flipper.setPosition({ 100.0f, 850.0f });
+	m_flipper.setPosition({ 250.0f, 850.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -50,6 +50,8 @@ void Gameplay::update(sf::Time t_dTime)
 	{
 		CollisionHandler::resolveCollision(m_ball, p.getBounds());
 	}
+
+	CollisionHandler::resolveCollision(m_ball, m_flipper.getBounds());
 }
 
 ///////////////////////////////////////////////////////////////
