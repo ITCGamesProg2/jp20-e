@@ -29,7 +29,10 @@ void Flipper::setupBoundingBox()
 
 void Flipper::update(sf::Time t_dTime)
 {
-	setPosition(m_position);
+	m_boundingBox.p1 = m_position;
+	m_boundingBox.p2 = m_position + sf::Vector2f{ m_width * cos(m_rotation), m_width * sin(m_rotation) };
+
+	m_body.setRotation(m_rotation * (180.0f/3.14159));
 }
 
 ///////////////////////////////////////////////////////////////
@@ -45,9 +48,6 @@ sf::RectangleShape Flipper::getShape()
 void Flipper::setPosition(sf::Vector2f t_pos)
 {
 	m_position = t_pos;
-
-	m_boundingBox.p1 = m_position;
-	m_boundingBox.p2 = m_position + sf::Vector2f{ m_width * cos(m_rotation), m_width * sin(m_rotation) };
 }
 
 ///////////////////////////////////////////////////////////////
@@ -55,6 +55,13 @@ void Flipper::setPosition(sf::Vector2f t_pos)
 const sf::Vector2f Flipper::getPosition() const
 {
 	return m_position;
+}
+
+///////////////////////////////////////////////////////////////
+
+void Flipper::rotate(float t_rotateBy)
+{
+	m_rotation += t_rotateBy;
 }
 
 ///////////////////////////////////////////////////////////////

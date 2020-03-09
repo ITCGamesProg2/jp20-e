@@ -34,6 +34,12 @@ public:
 	virtual const sf::Vector2f getPosition() const override;
 
 	/// <summary>
+	/// 
+	/// </summary>
+	/// <param name="t_rotateBy"></param>
+	void rotate(float t_rotateBy);
+
+	/// <summary>
 	/// @brief Returns the bounds of our line
 	/// </summary>
 	/// <returns></returns>

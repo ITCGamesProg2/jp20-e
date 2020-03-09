@@ -40,6 +40,17 @@ void Gameplay::processEvents(sf::Event t_event)
 void Gameplay::update(sf::Time t_dTime)
 {
 	m_ball.update(t_dTime);
+	m_flipper.update(t_dTime);
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		m_flipper.rotate(-0.1f);
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		m_flipper.rotate(0.1f);
+	}
 
 	if (m_ball.getPosition().y >= BOTTOM_OF_SCREEN)
 	{
