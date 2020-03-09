@@ -181,9 +181,6 @@
     <ClInclude Include="include\GameEntity.h">
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
-    <ClInclude Include="include\tinyc2.h">
-      <Filter>Header Files\Game Systems\Collisions</Filter>
-    </ClInclude>
     <ClInclude Include="include\TableBuilder.h">
       <Filter>Header Files\Game Screens</Filter>
     </ClInclude>

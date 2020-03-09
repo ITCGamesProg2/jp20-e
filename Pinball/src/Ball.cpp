@@ -10,7 +10,6 @@ Ball::Ball() :
 	m_gravity = { 0.0f, 9.8f };
 }
 
-
 ///////////////////////////////////////////////////////////////
 
 void Ball::setupSprite()
@@ -26,8 +25,7 @@ void Ball::setupSprite()
 void Ball::setupBoundingBox()
 {
 	// Set position
-	m_boundingBox.p.x = m_position.x;
-	m_boundingBox.p.y = m_position.y;
+	m_boundingBox.p = m_position;
 
 	// Set radius
 	m_boundingBox.r = m_radius;
@@ -45,8 +43,7 @@ void Ball::update(sf::Time t_dTime)
 	m_position += m_velocity;
 
 	// Update bounding box
-	m_boundingBox.p.x = m_position.x;
-	m_boundingBox.p.y = m_position.y;
+	m_boundingBox.p = m_position;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -65,8 +62,7 @@ void Ball::setPosition(sf::Vector2f t_pos)
 	m_position = t_pos;
 	m_body.setPosition(m_position);
 
-	m_boundingBox.p.x = m_position.x;
-	m_boundingBox.p.y = m_position.y;
+	m_boundingBox.p = m_position;
 }
 
 ///////////////////////////////////////////////////////////////
@@ -92,7 +88,7 @@ sf::Vector2f Ball::getVelocity()
 
 ///////////////////////////////////////////////////////////////
 
-c2Circle const& Ball::getBounds()
+Circle const& Ball::getBounds() const
 {
 	return m_boundingBox;
 }
