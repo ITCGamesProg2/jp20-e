@@ -1,6 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <functional>
+#include "ScreenType.h"
 
 class BaseScreen
 {

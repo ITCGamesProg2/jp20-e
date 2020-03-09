@@ -193,5 +193,8 @@
     <ClInclude Include="include\CollisionHandler.h">
       <Filter>Header Files\Game Systems\Collisions</Filter>
     </ClInclude>
+    <ClInclude Include="include\ScreenType.h">
+      <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

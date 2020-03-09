@@ -1,12 +1,14 @@
 #pragma once
 #include "BaseScreen.h"
 
+class ScreenManager;
+
 class TableBuilder :
 	public BaseScreen
 {
 public:
 
-	TableBuilder(sf::Font& t_font);
+	TableBuilder(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager);
 	~TableBuilder() = default;
 
 	/// <summary>
@@ -29,8 +31,13 @@ public:
 
 private:
 
+	std::function<void(ScreenManager*, ScreenType t_type)> f_switchScreen;
+
 	sf::Font& m_font;
 
 	sf::Text m_text;
+
+	ScreenManager* m_manager;
 };
 
+#include "ScreenManager.h"

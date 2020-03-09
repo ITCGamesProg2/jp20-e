@@ -1,0 +1,15 @@
+#pragma once
+
+enum class ScreenType
+{
+	NONE,
+	LICENSE,
+	SPLASH,
+	MAIN_MENU,
+	GAMEPLAY,
+	TABLEBUILDER,
+	INSTRUCTIONS,
+	HIGHSCORES,
+	SETTINGS,
+	CREDITS
+};

@@ -181,6 +181,7 @@
     <ClInclude Include="include\Peg.h" />
     <ClInclude Include="include\Score.h" />
     <ClInclude Include="include\ScreenManager.h" />
+    <ClInclude Include="include\ScreenType.h" />
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\Splash.h" />
     <ClInclude Include="include\Subject.h" />

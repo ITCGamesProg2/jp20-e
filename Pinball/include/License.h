@@ -1,10 +1,13 @@
 #pragma once
 #include "BaseScreen.h"
+
+class ScreenManager;
+
 class License :
 	public BaseScreen
 {
 public:
-	License(sf::Font& t_font);
+	License(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager);
 	~License() = default;
 
 	/// <summary>
@@ -25,9 +28,19 @@ public:
 	/// <param name="t_window">SF::RenderWindow to draw to</param>
 	void render(sf::RenderWindow& t_window) override;
 
+
+
 private:
+
+	std::function<void(ScreenManager*, ScreenType t_type)> f_switchScreen;
 
 	sf::Font& m_font;
 
 	sf::Text m_text;
+
+	ScreenManager* m_manager;
+
+	sf::Time m_cumulativeTime;
 };
+
+#include <ScreenManager.h>
