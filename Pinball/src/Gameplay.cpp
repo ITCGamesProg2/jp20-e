@@ -26,13 +26,20 @@ Gameplay::Gameplay(sf::Font& t_font) :
 		offset = (offset == 0.0f) ? 25.0f : 0.0f;
 	}*/
 
-	m_flipper.setPosition({ 250.0f, 850.0f });
+	m_flipper.setPosition({ 250.0f, 800.0f });
 }
 
 ///////////////////////////////////////////////////////////////
 
 void Gameplay::processEvents(sf::Event t_event)
 {
+	if (sf::Event::KeyPressed == t_event.type)
+	{
+		if (sf::Keyboard::A == t_event.key.code)
+		{
+		//	m_flipper.flick();
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////
@@ -44,12 +51,7 @@ void Gameplay::update(sf::Time t_dTime)
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		m_flipper.rotate(-0.1f);
-	}
-
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-	{
-		m_flipper.rotate(0.1f);
+		m_flipper.flick();
 	}
 
 	if (m_ball.getPosition().y >= BOTTOM_OF_SCREEN)
