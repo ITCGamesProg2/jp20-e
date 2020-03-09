@@ -34,6 +34,11 @@ public:
 	virtual const sf::Vector2f getPosition() const override;
 
 	/// <summary>
+	/// @brief 'Flicks' our flipper up to hit the ball
+	/// </summary>
+	void flick();
+
+	/// <summary>
 	/// @brief Returns the bounds of our line
 	/// </summary>
 	/// <returns></returns>
@@ -44,13 +49,25 @@ private:
 	void setupSprite();
 	void setupBoundingBox();
 
+	/// <summary>
+	/// @brief Moves our flipper up or down, depending on its phase
+	/// </summary>
+	void move();
+
 	sf::RectangleShape m_body;
 
 	float m_width;
 	float m_height;
 
+	// Keep track of whether or flipper should be actively moving up or now
+	bool m_isFlicking;
+
+	// Constraints for our rotation
+	const float INITIAL_ROTATION;
+	const float FINAL_ROTATION;
+
 	// How many radians rotated off horizontal are we
-	float m_rotation;
+	float m_currentRotation;
 
 	Line m_boundingBox;
 };
