@@ -1,8 +1,12 @@
 #include "CollisionHandler.h"
 
+Line CollisionHandler::m_lookAhead;
 
 void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
 {
+	m_lookAhead.p1 = t_ball.getPosition();
+	m_lookAhead.p2 = m_lookAhead.p1 + t_ball.getVelocity();
+
 	if (isColliding(t_ball.getBounds(), t_entityCircle))
 	{
 		sf::Vector2f surfaceOfContact{ getSurfaceOfContact(t_ball.getBounds().p, t_entityCircle.p) };
@@ -12,6 +16,9 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
 
 		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f ));
 	}
+
+	m_lookAhead.p1 = { -1.0f,-1.0f };
+	m_lookAhead.p2 = { -1.0f, 1.0f };
 }
 
 ///////////////////////////////////////////////////////////////
@@ -30,15 +37,25 @@ void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB)
 
 ///////////////////////////////////////////////////////////////
 
-void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine)
+#include <iostream>
+
+void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine, float t_speed)
 {
-	if (isColliding(t_ball.getBounds(), t_entityLine))
+	std::cout << t_speed << std::endl;
+
+	sf::Vector2f unit = (thor::length(t_ball.getVelocity()) != 0.0f) ? thor::unitVector(t_ball.getVelocity()) : sf::Vector2f{0.0f, 0.0f};
+
+	m_lookAhead.p1 = t_ball.getPosition();
+	// We need to add the unit vector of the balls velocity times the magnitude of the flipper
+	m_lookAhead.p2 = m_lookAhead.p1 + t_ball.getVelocity() + unit * t_speed;
+
+	if (doIntersect(m_lookAhead.p1, m_lookAhead.p2, t_entityLine.p1, t_entityLine.p2) || isColliding(t_ball.getBounds(), t_entityLine))
 	{
 		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {t_entityLine.p2 - t_entityLine.p1}) };
 
 		t_ball.setVelocity(finalVelocity);
 
-		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f));
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 2.0f));
 	}
 }
 
@@ -165,4 +182,69 @@ sf::Vector2f CollisionHandler::getReboundVector(sf::Vector2f t_velocity, sf::Vec
 float CollisionHandler::getDistance(sf::Vector2f t_p1, sf::Vector2f t_p2)
 {
 	return thor::length(t_p2 - t_p1);
+}
+
+///////////////////////////////////////////////////////////////
+
+// The main function that returns true if line segment 'p1q1' 
+// and 'p2q2' intersect. 
+bool CollisionHandler::doIntersect(sf::Vector2f p1, sf::Vector2f q1, sf::Vector2f p2, sf::Vector2f q2)
+{
+	// Find the four orientations needed for general and 
+	// special cases 
+	int o1 = orientation(p1, q1, p2);
+	int o2 = orientation(p1, q1, q2);
+	int o3 = orientation(p2, q2, p1);
+	int o4 = orientation(p2, q2, q1);
+
+	// General case 
+	if (o1 != o2 && o3 != o4)
+		return true;
+
+	// Special Cases 
+	// p1, q1 and p2 are colinear and p2 lies on segment p1q1 
+	if (o1 == 0 && onSegment(p1, p2, q1)) return true;
+
+	// p1, q1 and q2 are colinear and q2 lies on segment p1q1 
+	if (o2 == 0 && onSegment(p1, q2, q1)) return true;
+
+	// p2, q2 and p1 are colinear and p1 lies on segment p2q2 
+	if (o3 == 0 && onSegment(p2, p1, q2)) return true;
+
+	// p2, q2 and q1 are colinear and q1 lies on segment p2q2 
+	if (o4 == 0 && onSegment(p2, q1, q2)) return true;
+
+	return false; // Doesn't fall in any of the above cases 
+}
+
+///////////////////////////////////////////////////////////////
+
+// Given three colinear points p, q, r, the function checks if 
+// point q lies on line segment 'pr' 
+bool CollisionHandler::onSegment(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r)
+{
+	if (q.x <= std::max(p.x, r.x) && q.x >= std::min(p.x, r.x) &&
+		q.y <= std::max(p.y, r.y) && q.y >= std::min(p.y, r.y))
+		return true;
+
+	return false;
+}
+
+///////////////////////////////////////////////////////////////
+
+// To find orientation of ordered triplet (p, q, r). 
+// The function returns following values 
+// 0 --> p, q and r are colinear 
+// 1 --> Clockwise 
+// 2 --> Counterclockwise 
+int CollisionHandler::orientation(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r)
+{
+	// See https://www.geeksforgeeks.org/orientation-3-ordered-points/ 
+	// for details of below formula. 
+	int val = (q.y - p.y) * (r.x - q.x) -
+		(q.x - p.x) * (r.y - q.y);
+
+	if (val == 0) return 0;  // colinear 
+
+	return (val > 0) ? 1 : 2; // clock or counterclock wise 
 }

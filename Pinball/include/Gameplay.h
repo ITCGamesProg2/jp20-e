@@ -48,7 +48,7 @@ private:
 	Ball m_ball;
 	std::vector<Peg> m_pegs;
 
-	const sf::Vector2f ORIGINAL_BALL_POS{ 300.0f, 0.0f };
+	const sf::Vector2f ORIGINAL_BALL_POS{ 240.0f, 780.0f };
 	const sf::Vector2f ORIGINAL_BALL_VELOCITY{ 0.0f, 0.0f };
 	const float BOTTOM_OF_SCREEN{ 900.0f };
 };

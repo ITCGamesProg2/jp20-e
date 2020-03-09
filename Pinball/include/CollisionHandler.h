@@ -42,7 +42,7 @@ public:
 
 	static void resolveCollision(Ball& t_ball, Circle t_entityCircle);
 	static void resolveCollision(Ball& t_ball, AABB t_entityAABB);
-	static void resolveCollision(Ball& t_ball, Line t_entityLine);
+	static void resolveCollision(Ball& t_ball, Line t_entityLine, float t_velocity);
 
 private:
 
@@ -67,6 +67,15 @@ private:
 	/// <param name="t_p2">Second point</param>
 	/// <returns>length as a float</returns>
 	static float getDistance(sf::Vector2f t_p1, sf::Vector2f t_p2);
+
+	static bool doIntersect(sf::Vector2f p1, sf::Vector2f q1, sf::Vector2f p2, sf::Vector2f q2);
+
+	static bool onSegment(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r);
+
+	static int orientation(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r);
+
+	// A line along the path our ball will travel between this frame and the next
+	static Line m_lookAhead;
 };
 
 #include "GameEntity.h"
