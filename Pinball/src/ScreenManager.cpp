@@ -4,15 +4,17 @@ ScreenManager::ScreenManager(sf::Font& t_font) :
 	m_activeScreen{nullptr},
 	m_font{t_font}
 {
-	m_licenseScreen = new License(m_font);
-	m_splashScreen = new Splash(m_font);
-	m_mainMenuScreen = new MainMenu(m_font);
-	m_gameplayScreen = new Gameplay(m_font);
-	m_instructionsScreen = new Instructions(m_font);
-	m_highScoreScreen = new HighScore(m_font);
-	m_settingsScreen = new Settings(m_font);
-	m_creditsScreen = new Credits(m_font);
-	m_tableBuilderScreen = new TableBuilder(m_font);
+	f_switchScreen = &ScreenManager::setScreen;
+
+	m_licenseScreen = new License(m_font, f_switchScreen, this);
+	m_splashScreen = new Splash(m_font, f_switchScreen, this);
+	m_mainMenuScreen = new MainMenu(m_font, f_switchScreen, this);
+	m_gameplayScreen = new Gameplay(m_font, f_switchScreen, this);
+	m_instructionsScreen = new Instructions(m_font, f_switchScreen, this);
+	m_highScoreScreen = new HighScore(m_font, f_switchScreen, this);
+	m_settingsScreen = new Settings(m_font, f_switchScreen, this);
+	m_creditsScreen = new Credits(m_font, f_switchScreen, this);
+	m_tableBuilderScreen = new TableBuilder(m_font, f_switchScreen, this);
 }
 
 ///////////////////////////////////////////////////////////////

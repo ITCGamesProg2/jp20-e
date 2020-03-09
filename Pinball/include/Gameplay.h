@@ -7,11 +7,13 @@
 #include "Peg.h"
 #include <vector>
 
+class ScreenManager;
+
 class Gameplay :
 	public BaseScreen
 {
 public:
-	Gameplay(sf::Font& t_font);
+	Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager);
 	~Gameplay() = default;
 
 	/// <summary>
@@ -39,6 +41,8 @@ public:
 
 private:
 
+	std::function<void(ScreenManager*, ScreenType t_type)> f_switchScreen;
+
 	sf::Font& m_font;
 
 	sf::Text m_text;
@@ -51,4 +55,8 @@ private:
 	const sf::Vector2f ORIGINAL_BALL_POS{ 300.0f, 0.0f };
 	const sf::Vector2f ORIGINAL_BALL_VELOCITY{ 0.0f, 0.0f };
 	const float BOTTOM_OF_SCREEN{ 900.0f };
+
+	ScreenManager* m_manager;
 };
+
+#include "ScreenManager.h"

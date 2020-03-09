@@ -1,10 +1,13 @@
 #pragma once
 #include "BaseScreen.h"
+
+class ScreenManager;
+
 class Splash :
 	public BaseScreen
 {
 public:
-	Splash(sf::Font& t_font);
+	Splash(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager);
 	~Splash() = default;
 
 	/// <summary>
@@ -27,7 +30,13 @@ public:
 
 private:
 
+	std::function<void(ScreenManager*, ScreenType t_type)> f_switchScreen;
+
 	sf::Font& m_font;
 
 	sf::Text m_text;
+
+	ScreenManager* m_manager;
 };
+
+#include "ScreenManager.h"

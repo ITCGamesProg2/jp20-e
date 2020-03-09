@@ -1,13 +1,16 @@
 #include "Gameplay.h"
 
-Gameplay::Gameplay(sf::Font& t_font) :
-	m_font{ t_font }
+Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager) :
+	m_font{ t_font },
+	m_manager{ t_manager }
 {
 	m_text.setFont(m_font);
 
 	m_text.setFillColor(sf::Color::Black);
 	m_text.setCharacterSize(32U);
 	m_text.setString("GAMEPLAY");
+
+	f_switchScreen = t_switchScreen;
 
 	m_ball.setPosition(ORIGINAL_BALL_POS);
 
