@@ -13,5 +13,6 @@ Session 11 Start: 12:00 End: 12:25 (Implementing AABB collisions) (08/03)
 Session 12 Start: 12:20 End: 13:55 (Implementing flipper movement) (09/03)
 Session 13 Start: 14:00 End: 16:00 (Trying to get collisions working with moving flipper) (09/03)
 Session 14 Start: 10:00 End: 11:00 (Stopping ball from 'sinking through' flipper) (10/03)
+Session 15 Start: 12:00 End: 12:50 (Added left and right flipper) (10/03)
 
-Total time: 12:40
+Total time: 13:30

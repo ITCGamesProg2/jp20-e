@@ -143,15 +143,16 @@
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\CollisionHandler.cpp" />
     <ClCompile Include="src\Credits.cpp" />
-    <ClCompile Include="src\Flipper.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\Gameplay.cpp" />
     <ClCompile Include="src\HighScore.cpp" />
     <ClCompile Include="src\Instructions.cpp" />
+    <ClCompile Include="src\LeftFlipper.cpp" />
     <ClCompile Include="src\License.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
     <ClCompile Include="src\Peg.cpp" />
+    <ClCompile Include="src\RightFlipper.cpp" />
     <ClCompile Include="src\Score.cpp" />
     <ClCompile Include="src\ScreenManager.cpp" />
     <ClCompile Include="src\Settings.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="include\Credits.h" />
     <ClInclude Include="include\Event.h" />
     <ClInclude Include="include\GameEntity.h" />
+    <ClInclude Include="include\LeftFlipper.h" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\Flipper.h" />
     <ClInclude Include="include\Game.h" />
@@ -181,6 +183,7 @@
     <ClInclude Include="include\MainMenu.h" />
     <ClInclude Include="include\Obstacle.h" />
     <ClInclude Include="include\Peg.h" />
+    <ClInclude Include="include\RightFlipper.h" />
     <ClInclude Include="include\Score.h" />
     <ClInclude Include="include\ScreenManager.h" />
     <ClInclude Include="include\ScreenType.h" />

@@ -1,11 +1,11 @@
-#include "Flipper.h"
+#include "LeftFlipper.h"
 
-Flipper::Flipper() : 
-	m_width{100.0f},
-	m_height{20.0f},
-	INITIAL_ROTATION{0.5f},
-	FINAL_ROTATION{-0.6f},
-	m_currentRotation{INITIAL_ROTATION}
+LeftFlipper::LeftFlipper() :
+	m_width{ 100.0f },
+	m_height{ 20.0f },
+	INITIAL_ROTATION{ 0.5f },
+	FINAL_ROTATION{ -0.6f },
+	m_currentRotation{ INITIAL_ROTATION }
 {
 	setupSprite();
 	setupBoundingBox();
@@ -13,7 +13,7 @@ Flipper::Flipper() :
 
 ///////////////////////////////////////////////////////////////
 
-void Flipper::setupSprite()
+void LeftFlipper::setupSprite()
 {
 	m_body.setSize({ m_width, m_height });
 	m_body.setFillColor(sf::Color::Black);
@@ -21,15 +21,17 @@ void Flipper::setupSprite()
 
 ///////////////////////////////////////////////////////////////
 
-void Flipper::setupBoundingBox()
+void LeftFlipper::setupBoundingBox()
 {
 	m_boundingBox.p1 = m_position;
+
 	m_boundingBox.p1 = m_position + sf::Vector2f{ m_width,0.f };
 }
 
+
 ///////////////////////////////////////////////////////////////
 
-void Flipper::update(sf::Time t_dTime)
+void LeftFlipper::update(sf::Time t_dTime)
 {
 	m_boundingBox.p1 = m_position;
 	m_boundingBox.p2 = m_position + sf::Vector2f{ m_width * cos(m_currentRotation), m_width * sin(m_currentRotation) };
@@ -42,12 +44,12 @@ void Flipper::update(sf::Time t_dTime)
 
 	m_speed = thor::length(pos2 - pos1);
 
-	m_body.setRotation(m_currentRotation * (180.0f/3.14159f));
+	m_body.setRotation(m_currentRotation * (180.0f / 3.14159f));
 }
 
 ///////////////////////////////////////////////////////////////
 
-void Flipper::move()
+void LeftFlipper::move()
 {
 	if (m_isFlicking)
 	{
@@ -65,7 +67,7 @@ void Flipper::move()
 
 ///////////////////////////////////////////////////////////////
 
-sf::RectangleShape Flipper::getShape()
+sf::RectangleShape LeftFlipper::getShape()
 {
 	m_body.setPosition(m_position);
 	return m_body;
@@ -73,35 +75,35 @@ sf::RectangleShape Flipper::getShape()
 
 ///////////////////////////////////////////////////////////////
 
-void Flipper::setPosition(sf::Vector2f t_pos)
+void LeftFlipper::setPosition(sf::Vector2f t_pos)
 {
 	m_position = t_pos;
 }
 
 ///////////////////////////////////////////////////////////////
 
-const sf::Vector2f Flipper::getPosition() const
+const sf::Vector2f LeftFlipper::getPosition() const
 {
 	return m_position;
 }
 
 ///////////////////////////////////////////////////////////////
 
-Line const& Flipper::getBounds() const
+Line const& LeftFlipper::getBounds() const
 {
 	return m_boundingBox;
 }
 
 ///////////////////////////////////////////////////////////////
 
-float Flipper::getSpeed() const
+float LeftFlipper::getSpeed() const
 {
 	return m_speed;
 }
 
 ///////////////////////////////////////////////////////////////
 
-void Flipper::flick()
+void LeftFlipper::flick()
 {
 	m_isFlicking = true;
 }

@@ -31,7 +31,12 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 		offset = (offset == 0.0f) ? 25.0f : 0.0f;
 	}*/
 
-	m_flipper.setPosition({ 240.0f, 800.0f });
+	Peg newPeg;
+	newPeg.setPosition({ 300.0f, 825.0f });
+	m_pegs.push_back(newPeg);
+
+	m_leftFlipper.setPosition({ 175.0f, 750.0f });
+	m_rightFlipper.setPosition({ 425.0f, 750.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -45,11 +50,17 @@ void Gameplay::processEvents(sf::Event t_event)
 void Gameplay::update(sf::Time t_dTime)
 {
 	m_ball.update(t_dTime);
-	m_flipper.update(t_dTime);
+	m_leftFlipper.update(t_dTime);
+	m_rightFlipper.update(t_dTime);
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
-		m_flipper.flick();
+		m_leftFlipper.flick();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		m_rightFlipper.flick();
 	}
 
 	if (m_ball.getPosition().y >= BOTTOM_OF_SCREEN)
@@ -62,9 +73,11 @@ void Gameplay::update(sf::Time t_dTime)
 		CollisionHandler::resolveCollision(m_ball, p.getBounds());
 	}
 
+	CollisionHandler::resolveCollision(m_ball, m_leftFlipper);
+	CollisionHandler::resolveCollision(m_ball, m_rightFlipper);
+
 	CollisionHandler::resolveCollision(m_ball, m_barriers.getBounds());
 
-	CollisionHandler::resolveCollision(m_ball, m_flipper);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -79,9 +92,11 @@ void Gameplay::render(sf::RenderWindow& t_window)
 		t_window.draw(p.getSprite());
 	}
 
-	t_window.draw(m_barriers.getShape());
 
-	t_window.draw(m_flipper.getShape());
+	t_window.draw(m_leftFlipper.getShape());
+	t_window.draw(m_rightFlipper.getShape());
+
+	t_window.draw(m_barriers.getShape());
 }
 
 ///////////////////////////////////////////////////////////////

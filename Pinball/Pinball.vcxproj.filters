@@ -53,9 +53,6 @@
     <ClCompile Include="src\Board.cpp">
       <Filter>Source Files\Game Entities</Filter>
     </ClCompile>
-    <ClCompile Include="src\Flipper.cpp">
-      <Filter>Source Files\Game Entities</Filter>
-    </ClCompile>
     <ClCompile Include="src\Credits.cpp">
       <Filter>Source Files\Game Screens</Filter>
     </ClCompile>
@@ -112,6 +109,12 @@
     </ClCompile>
     <ClCompile Include="src\CollisionHandler.cpp">
       <Filter>Source Files\Game Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="src\LeftFlipper.cpp">
+      <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RightFlipper.cpp">
+		<Filter>Source Files\Game Entities</Filter>
     </ClCompile>
     <ClCompile Include="src\Barrier.cpp">
       <Filter>Source Files\Game Entities</Filter>
@@ -198,6 +201,12 @@
     </ClInclude>
     <ClInclude Include="include\ScreenType.h">
       <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\LeftFlipper.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RightFlipper.h">
+		<Filter>Header Files\Game Entities</Filter>
     </ClInclude>
     <ClInclude Include="include\Barrier.h">
       <Filter>Header Files\Game Entities</Filter>
