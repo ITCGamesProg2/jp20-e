@@ -2,7 +2,8 @@
 
 #include "CollisionHandler.h"
 #include "BaseScreen.h"
-#include "Flipper.h"
+#include "LeftFlipper.h"
+#include "RightFlipper.h"
 #include "Ball.h"
 #include "Peg.h"
 #include <vector>
@@ -47,7 +48,8 @@ private:
 
 	sf::Text m_text;
 
-	Flipper m_flipper;
+	LeftFlipper m_leftFlipper;
+	RightFlipper m_rightFlipper;
 
 	Ball m_ball;
 	std::vector<Peg> m_pegs;
@@ -55,7 +57,7 @@ private:
 	// on top of flipper
 	//const sf::Vector2f ORIGINAL_BALL_POS{ 240.0f, 780.0f };
 
-	const sf::Vector2f ORIGINAL_BALL_POS{ 300.0f, 400.0f };
+	const sf::Vector2f ORIGINAL_BALL_POS{ 350.0f, 400.0f };
 
 	const sf::Vector2f ORIGINAL_BALL_VELOCITY{ 0.0f, 0.0f };
 	const float BOTTOM_OF_SCREEN{ 900.0f };
