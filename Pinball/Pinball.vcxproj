@@ -151,6 +151,7 @@
     <ClCompile Include="src\License.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
+    <ClCompile Include="src\MushroomBumper.cpp" />
     <ClCompile Include="src\Peg.cpp" />
     <ClCompile Include="src\RightFlipper.cpp" />
     <ClCompile Include="src\Score.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="include\Event.h" />
     <ClInclude Include="include\GameEntity.h" />
     <ClInclude Include="include\LeftFlipper.h" />
+    <ClInclude Include="include\MushroomBumper.h" />
     <ClInclude Include="include\Observer.h" />
     <ClInclude Include="include\Flipper.h" />
     <ClInclude Include="include\Game.h" />
