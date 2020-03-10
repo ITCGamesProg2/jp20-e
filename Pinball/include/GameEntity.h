@@ -13,6 +13,8 @@ public:
 
 	virtual CollisionBox const& getBounds() const = 0;
 
+
+
 protected:
 
 	sf::Vector2f m_position;

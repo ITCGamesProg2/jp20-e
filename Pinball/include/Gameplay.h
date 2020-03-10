@@ -7,6 +7,7 @@
 #include "Ball.h"
 #include "Peg.h"
 #include <vector>
+#include "Barrier.h"
 
 class ScreenManager;
 
@@ -53,6 +54,7 @@ private:
 
 	Ball m_ball;
 	std::vector<Peg> m_pegs;
+	Barrier m_barriers;
 
 	// on top of flipper
 	//const sf::Vector2f ORIGINAL_BALL_POS{ 240.0f, 780.0f };

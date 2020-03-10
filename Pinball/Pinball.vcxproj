@@ -139,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="src\Audio.cpp" />
     <ClCompile Include="src\Ball.cpp" />
+    <ClCompile Include="src\Barrier.cpp" />
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\CollisionHandler.cpp" />
     <ClCompile Include="src\Credits.cpp" />
@@ -164,6 +165,7 @@
   <ItemGroup>
     <ClInclude Include="include\Audio.h" />
     <ClInclude Include="include\Ball.h" />
+    <ClInclude Include="include\Barrier.h" />
     <ClInclude Include="include\BaseScreen.h" />
     <ClInclude Include="include\Board.h" />
     <ClInclude Include="include\CollisionHandler.h" />
