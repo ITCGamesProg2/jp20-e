@@ -16,7 +16,7 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
 
 		t_ball.setVelocity(finalVelocity);
 
-		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.1f ));
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 1.5f ));
 	}
 
 	m_lookAhead.p1 = { -1.0f,-1.0f };
