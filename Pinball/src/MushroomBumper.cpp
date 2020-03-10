@@ -1,7 +1,7 @@
 #include "MushroomBumper.h"
 
 MushroomBumper::MushroomBumper() :
-	m_radius(20.0f)
+	m_radius(40.0f)
 {
 	setupSprite();
 	setupBoundingBox();

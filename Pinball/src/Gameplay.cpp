@@ -46,6 +46,10 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_leftFlipper.setPosition({ 175.0f, 750.0f });
 	m_rightFlipper.setPosition({ 425.0f, 750.0f });
+
+	MushroomBumper newMushroom;
+	newMushroom.setPosition({ 300.0f, 400.0f });
+	m_mushroomBumpers.push_back(newMushroom);
 }
 
 ///////////////////////////////////////////////////////////////
@@ -106,6 +110,11 @@ void Gameplay::render(sf::RenderWindow& t_window)
 	for (Peg& p : m_pegs)
 	{
 		t_window.draw(p.getSprite());
+	}
+
+	for (MushroomBumper& m : m_mushroomBumpers)
+	{
+		t_window.draw(m.getSprite());
 	}
 
 	t_window.draw(m_leftFlipper.getShape());
