@@ -5,8 +5,14 @@
 class Flipper : public GameEntity
 {
 public:
-	Flipper();
 
+	enum class Handedness
+	{
+		LEFT,
+		RIGHT
+	};
+
+	Flipper();
 	~Flipper() = default;
 
 	/// <summary>
@@ -44,6 +50,12 @@ public:
 	/// <returns></returns>
 	Line const& getBounds() const override;
 
+	/// <summary>
+	/// @brief Setup the orientation of our flipper
+	/// </summary>
+	/// <param name="t_handedness">Left-handed or right-handed</param>
+	void setHandedness(Handedness t_handedness);
+
 private:
 
 	void setupSprite();
@@ -55,6 +67,8 @@ private:
 	void move();
 
 	sf::RectangleShape m_body;
+
+	Handedness m_handedness;
 
 	float m_width;
 	float m_height;

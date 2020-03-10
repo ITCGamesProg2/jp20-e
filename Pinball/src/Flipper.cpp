@@ -5,7 +5,8 @@ Flipper::Flipper() :
 	m_height{20.0f},
 	INITIAL_ROTATION{0.5f},
 	FINAL_ROTATION{-0.6f},
-	m_currentRotation{INITIAL_ROTATION}
+	m_currentRotation{INITIAL_ROTATION},
+	m_handedness{Handedness::LEFT}
 {
 	setupSprite();
 	setupBoundingBox();
@@ -91,4 +92,23 @@ Line const& Flipper::getBounds() const
 void Flipper::flick()
 {
 	m_isFlicking = true;
+}
+
+///////////////////////////////////////////////////////////////
+
+void Flipper::setHandedness(Handedness t_handedness)
+{
+	m_handedness = t_handedness;
+
+	switch (m_handedness)
+	{
+	case Handedness::LEFT:
+		m_body.setOrigin({ 0.0f, 0.0f });
+		break;
+	case Handedness::RIGHT:
+		m_body.setOrigin({ m_width, 0.0f });
+		break;
+	default:
+		break;
+	}
 }
