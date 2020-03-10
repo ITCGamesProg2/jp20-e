@@ -113,6 +113,9 @@
     <ClCompile Include="src\CollisionHandler.cpp">
       <Filter>Source Files\Game Systems</Filter>
     </ClCompile>
+    <ClCompile Include="src\Barrier.cpp">
+      <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
@@ -195,6 +198,9 @@
     </ClInclude>
     <ClInclude Include="include\ScreenType.h">
       <Filter>Header Files\Game Screens</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Barrier.h">
+      <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
