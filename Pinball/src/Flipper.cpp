@@ -35,9 +35,15 @@ void Flipper::update(sf::Time t_dTime)
 	m_boundingBox.p1 = m_position;
 	m_boundingBox.p2 = m_position + sf::Vector2f{ m_width * cos(m_currentRotation), m_width * sin(m_currentRotation) };
 
+	sf::Vector2f pos1 = m_boundingBox.p2;
+
 	move();
 
-	m_body.setRotation(m_currentRotation * (180.0f/3.14159));
+	sf::Vector2f pos2 = m_position + sf::Vector2f{ m_width * cos(m_currentRotation), m_width * sin(m_currentRotation) };
+
+	m_speed = thor::length(pos2 - pos1);
+
+	m_body.setRotation(m_currentRotation * (180.0f/3.14159f));
 }
 
 ///////////////////////////////////////////////////////////////
@@ -85,6 +91,13 @@ const sf::Vector2f Flipper::getPosition() const
 Line const& Flipper::getBounds() const
 {
 	return m_boundingBox;
+}
+
+///////////////////////////////////////////////////////////////
+
+float Flipper::getSpeed() const
+{
+	return m_speed;
 }
 
 ///////////////////////////////////////////////////////////////
