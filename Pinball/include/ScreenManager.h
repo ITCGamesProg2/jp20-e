@@ -11,20 +11,7 @@
 #include "Settings.h"
 #include "Credits.h"
 #include "TableBuilder.h"
-
-enum class ScreenType
-{
-	NONE,
-	LICENSE,
-	SPLASH,
-	MAIN_MENU,
-	GAMEPLAY,
-	TABLEBUILDER,
-	INSTRUCTIONS,
-	HIGHSCORES,
-	SETTINGS,
-	CREDITS
-};
+#include "ScreenType.h"
 
 class ScreenManager
 {
@@ -69,4 +56,6 @@ private:
 	BaseScreen* m_activeScreen;
 
 	sf::Font& m_font;
+
+	std::function<void(ScreenManager*, ScreenType t_type)> f_switchScreen;
 };
