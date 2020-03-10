@@ -26,7 +26,7 @@ void RightFlipper::setupBoundingBox()
 {
 	m_boundingBox.p1 = m_position;
 
-	m_boundingBox.p1 = m_position - sf::Vector2f{ m_width,0.f };
+	m_boundingBox.p2 = m_position - sf::Vector2f{ m_width,0.f };
 }
 
 
