@@ -14,7 +14,16 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_ball.setPosition(ORIGINAL_BALL_POS);
 
-	m_barriers.setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 800.0f });
+	for (int i = 0; i < 5; i++)
+	{
+		m_barriers.push_back(Barrier());
+	}
+
+	m_barriers.at(0).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 600.0f });
+	m_barriers.at(1).setPositions(sf::Vector2f{ 50.0f, 600.0f }, sf::Vector2f{ 175.0f, 750.0f });
+	m_barriers.at(2).setPositions(sf::Vector2f{ 550.0f, 50.0f }, sf::Vector2f{ 550.0f, 600.0f });
+	m_barriers.at(3).setPositions(sf::Vector2f{ 550.0f, 600.0f }, sf::Vector2f{ 425.0f, 750.0f });
+	m_barriers.at(4).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 600.0f });
 
 	float offset{ 0.0f };
 
@@ -68,6 +77,11 @@ void Gameplay::update(sf::Time t_dTime)
 		respawnBall();
 	}
 	
+	for (Barrier& b : m_barriers)
+	{
+		CollisionHandler::resolveCollision(m_ball, b.getBounds());
+	}
+
 	for (Peg& p : m_pegs)
 	{
 		CollisionHandler::resolveCollision(m_ball, p.getBounds());
@@ -75,9 +89,6 @@ void Gameplay::update(sf::Time t_dTime)
 
 	CollisionHandler::resolveCollision(m_ball, m_leftFlipper);
 	CollisionHandler::resolveCollision(m_ball, m_rightFlipper);
-
-	CollisionHandler::resolveCollision(m_ball, m_barriers.getBounds());
-
 }
 
 ///////////////////////////////////////////////////////////////
@@ -87,16 +98,18 @@ void Gameplay::render(sf::RenderWindow& t_window)
 	t_window.draw(m_text);
 	t_window.draw(m_ball.getShape());
 
+	for (Barrier& b : m_barriers)
+	{
+		t_window.draw(b.getShape());
+	}
+
 	for (Peg& p : m_pegs)
 	{
 		t_window.draw(p.getSprite());
 	}
 
-
 	t_window.draw(m_leftFlipper.getShape());
 	t_window.draw(m_rightFlipper.getShape());
-
-	t_window.draw(m_barriers.getShape());
 }
 
 ///////////////////////////////////////////////////////////////

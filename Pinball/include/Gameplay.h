@@ -54,7 +54,7 @@ private:
 
 	Ball m_ball;
 	std::vector<Peg> m_pegs;
-	Barrier m_barriers;
+	std::vector<Barrier> m_barriers;
 
 	// on top of flipper
 	//const sf::Vector2f ORIGINAL_BALL_POS{ 240.0f, 780.0f };
