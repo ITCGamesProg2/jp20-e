@@ -46,6 +46,15 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_leftFlipper.setPosition({ 175.0f, 750.0f });
 	m_rightFlipper.setPosition({ 425.0f, 750.0f });
+
+	for (int i = 0; i < 3; i++)
+	{
+		m_mushroomBumpers.push_back(MushroomBumper());
+	}
+	m_mushroomBumpers.at(0).setPosition(sf::Vector2f{ 150.0f, 200.0f });
+	m_mushroomBumpers.at(1).setPosition(sf::Vector2f{ 450.0f, 200.0f });
+	m_mushroomBumpers.at(2).setPosition(sf::Vector2f{ 300.0f, 400.0f });
+
 }
 
 ///////////////////////////////////////////////////////////////
@@ -87,6 +96,11 @@ void Gameplay::update(sf::Time t_dTime)
 		CollisionHandler::resolveCollision(m_ball, p.getBounds());
 	}
 
+	for (MushroomBumper& m : m_mushroomBumpers)
+	{
+		CollisionHandler::resolveCollision(m_ball, m.getBounds());
+	}
+
 	CollisionHandler::resolveCollision(m_ball, m_leftFlipper);
 	CollisionHandler::resolveCollision(m_ball, m_rightFlipper);
 }
@@ -106,6 +120,11 @@ void Gameplay::render(sf::RenderWindow& t_window)
 	for (Peg& p : m_pegs)
 	{
 		t_window.draw(p.getSprite());
+	}
+
+	for (MushroomBumper& m : m_mushroomBumpers)
+	{
+		t_window.draw(m.getSprite());
 	}
 
 	t_window.draw(m_leftFlipper.getShape());

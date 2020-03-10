@@ -114,10 +114,13 @@
       <Filter>Source Files\Game Entities</Filter>
     </ClCompile>
     <ClCompile Include="src\RightFlipper.cpp">
-		<Filter>Source Files\Game Entities</Filter>
+      <Filter>Source Files\Game Entities</Filter>
     </ClCompile>
     <ClCompile Include="src\Barrier.cpp">
       <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MushroomBumper.cpp">
+      <Filter>Source Files\Game Entities\Obstacles</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,10 +209,13 @@
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
     <ClInclude Include="include\RightFlipper.h">
-		<Filter>Header Files\Game Entities</Filter>
+      <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
     <ClInclude Include="include\Barrier.h">
       <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MushroomBumper.h">
+      <Filter>Header Files\Game Entities\Obstacles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
