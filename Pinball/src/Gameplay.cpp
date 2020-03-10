@@ -31,20 +31,13 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 		offset = (offset == 0.0f) ? 25.0f : 0.0f;
 	}*/
 
-	m_flipper.setPosition({ 250.0f, 800.0f });
+	m_flipper.setPosition({ 240.0f, 800.0f });
 }
 
 ///////////////////////////////////////////////////////////////
 
 void Gameplay::processEvents(sf::Event t_event)
 {
-	if (sf::Event::KeyPressed == t_event.type)
-	{
-		if (sf::Keyboard::A == t_event.key.code)
-		{
-		//	m_flipper.flick();
-		}
-	}
 }
 
 ///////////////////////////////////////////////////////////////
@@ -69,9 +62,9 @@ void Gameplay::update(sf::Time t_dTime)
 		CollisionHandler::resolveCollision(m_ball, p.getBounds());
 	}
 
-	CollisionHandler::resolveCollision(m_ball, m_flipper.getBounds());
-
 	CollisionHandler::resolveCollision(m_ball, m_barriers.getBounds());
+
+	CollisionHandler::resolveCollision(m_ball, m_flipper);
 }
 
 ///////////////////////////////////////////////////////////////
