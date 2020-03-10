@@ -39,12 +39,6 @@ public:
 	virtual Line const& getBounds() const = 0;
 
 	/// <summary>
-	/// @brief Returns the velocity of the tip of the paddle
-	/// </summary>
-	/// <returns></returns>
-	virtual float getSpeed() const = 0;
-
-	/// <summary>
 	/// @brief 'Flicks' our flipper up to hit the ball
 	/// </summary>
 	virtual void flick() = 0;
