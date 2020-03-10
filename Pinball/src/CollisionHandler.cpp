@@ -1,5 +1,7 @@
 #include "CollisionHandler.h"
 
+// CREDIT: Line intersection code inspired by an article on GeeksForGeeks, "orientation of 3 ordered points"
+
 Line CollisionHandler::m_lookAhead;
 
 void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
@@ -39,16 +41,43 @@ void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB)
 
 #include <iostream>
 
-void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine, float t_speed)
+void CollisionHandler::resolveCollision(Ball& t_ball, Flipper& t_flipper)
 {
-	std::cout << t_speed << std::endl;
+	Line line{ t_flipper.getBounds() };
 
-	sf::Vector2f unit = (thor::length(t_ball.getVelocity()) != 0.0f) ? thor::unitVector(t_ball.getVelocity()) : sf::Vector2f{0.0f, 0.0f};
+	// If magnitude of velocity isn't 0, get the unit vector (prevent dividing by 0)
+	sf::Vector2f unit = (thor::length(t_ball.getVelocity()) != 0.0f) ? 
+		thor::unitVector(t_ball.getVelocity()) : 
+		sf::Vector2f{ 0.0f, 0.0f };
 
+	// our ray starts at the position of the ball
 	m_lookAhead.p1 = t_ball.getPosition();
-	// We need to add the unit vector of the balls velocity times the magnitude of the flipper
-	m_lookAhead.p2 = m_lookAhead.p1 + t_ball.getVelocity() + unit * t_speed;
 
+	// And extends in the direction of our velocity to the combined speed of our ball + flipper per frame
+	m_lookAhead.p2 = m_lookAhead.p1 + t_ball.getVelocity() + unit * t_flipper.getSpeed();
+
+	// If our 'look-ahead' line intersects the flipper, OR our circle collides with the flipper
+	if (doIntersect(m_lookAhead.p1, m_lookAhead.p2, line.p1, line.p2) || isColliding(t_ball.getBounds(), line))
+	{
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {line.p2 - line.p1}) };
+		
+		t_ball.setVelocity(finalVelocity);
+
+		t_ball.setPosition(t_ball.getPosition() + (thor::unitVector(t_ball.getVelocity()) * 2.0f));
+	}
+
+	// After we've handled rebound, ensure it isn't sinking into flipper
+	while (isColliding(t_ball.getBounds(), line))
+	{
+		t_ball.setPosition(t_ball.getPosition() + sf::Vector2f{0.0f, -0.01f});
+	}
+}
+
+///////////////////////////////////////////////////////////////
+
+void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine)
+{
+	// If our 'look-ahead' line intersects the line, OR our circle collides with the line
 	if (doIntersect(m_lookAhead.p1, m_lookAhead.p2, t_entityLine.p1, t_entityLine.p2) || isColliding(t_ball.getBounds(), t_entityLine))
 	{
 		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {t_entityLine.p2 - t_entityLine.p1}) };
@@ -186,8 +215,6 @@ float CollisionHandler::getDistance(sf::Vector2f t_p1, sf::Vector2f t_p2)
 
 ///////////////////////////////////////////////////////////////
 
-// The main function that returns true if line segment 'p1q1' 
-// and 'p2q2' intersect. 
 bool CollisionHandler::doIntersect(sf::Vector2f p1, sf::Vector2f q1, sf::Vector2f p2, sf::Vector2f q2)
 {
 	// Find the four orientations needed for general and 
@@ -219,8 +246,6 @@ bool CollisionHandler::doIntersect(sf::Vector2f p1, sf::Vector2f q1, sf::Vector2
 
 ///////////////////////////////////////////////////////////////
 
-// Given three colinear points p, q, r, the function checks if 
-// point q lies on line segment 'pr' 
 bool CollisionHandler::onSegment(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r)
 {
 	if (q.x <= std::max(p.x, r.x) && q.x >= std::min(p.x, r.x) &&
@@ -232,15 +257,8 @@ bool CollisionHandler::onSegment(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r)
 
 ///////////////////////////////////////////////////////////////
 
-// To find orientation of ordered triplet (p, q, r). 
-// The function returns following values 
-// 0 --> p, q and r are colinear 
-// 1 --> Clockwise 
-// 2 --> Counterclockwise 
 int CollisionHandler::orientation(sf::Vector2f p, sf::Vector2f q, sf::Vector2f r)
 {
-	// See https://www.geeksforgeeks.org/orientation-3-ordered-points/ 
-	// for details of below formula. 
 	int val = (q.y - p.y) * (r.x - q.x) -
 		(q.x - p.x) * (r.y - q.y);
 

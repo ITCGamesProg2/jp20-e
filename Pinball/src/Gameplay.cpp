@@ -33,13 +33,6 @@ Gameplay::Gameplay(sf::Font& t_font) :
 
 void Gameplay::processEvents(sf::Event t_event)
 {
-	if (sf::Event::KeyPressed == t_event.type)
-	{
-		if (sf::Keyboard::A == t_event.key.code)
-		{
-		//	m_flipper.flick();
-		}
-	}
 }
 
 ///////////////////////////////////////////////////////////////
@@ -64,7 +57,7 @@ void Gameplay::update(sf::Time t_dTime)
 		CollisionHandler::resolveCollision(m_ball, p.getBounds());
 	}
 
-	CollisionHandler::resolveCollision(m_ball, m_flipper.getBounds(), m_flipper.getSpeed());
+	CollisionHandler::resolveCollision(m_ball, m_flipper);
 }
 
 ///////////////////////////////////////////////////////////////
