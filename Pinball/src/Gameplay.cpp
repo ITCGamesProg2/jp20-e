@@ -14,6 +14,8 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_ball.setPosition(ORIGINAL_BALL_POS);
 
+	m_barriers.setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 800.0f });
+
 	float offset{ 0.0f };
 
 	/*for (int i = 0; i < 10; i++)
@@ -68,6 +70,8 @@ void Gameplay::update(sf::Time t_dTime)
 	}
 
 	CollisionHandler::resolveCollision(m_ball, m_flipper.getBounds());
+
+	CollisionHandler::resolveCollision(m_ball, m_barriers.getBounds());
 }
 
 ///////////////////////////////////////////////////////////////
@@ -81,6 +85,8 @@ void Gameplay::render(sf::RenderWindow& t_window)
 	{
 		t_window.draw(p.getSprite());
 	}
+
+	t_window.draw(m_barriers.getShape());
 
 	t_window.draw(m_flipper.getShape());
 }
