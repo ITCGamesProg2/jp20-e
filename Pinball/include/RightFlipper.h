@@ -41,12 +41,6 @@ public:
 	Line const& getBounds() const override;
 
 	/// <summary>
-	/// @brief Returns the velocity of the tip of the paddle
-	/// </summary>
-	/// <returns></returns>
-	float getSpeed() const override;
-
-	/// <summary>
 	/// @brief 'Flicks' our flipper up to hit the ball
 	/// </summary>
 	void flick() override;
@@ -75,9 +69,6 @@ private:
 
 	// How many radians rotated off horizontal are we
 	float m_currentRotation;
-
-	// How fast the flipper is moving
-	float m_speed;
 
 	Line m_boundingBox;
 };
