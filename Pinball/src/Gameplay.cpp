@@ -3,7 +3,7 @@
 Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager) :
 	m_font{ t_font },
 	m_manager{ t_manager },
-	ORIGINAL_BALL_POS{ 575.0f, 75.0f },
+	ORIGINAL_BALL_POS{ 575.0f, 100.0f },
 	ORIGINAL_BALL_VELOCITY{ 0.0f,0.0f },
 	BOTTOM_OF_SCREEN{ 900.0f }
 {
@@ -17,7 +17,7 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_ball.setPosition(ORIGINAL_BALL_POS);
 
-	for (int i = 0; i < 21; i++)
+	for (int i = 0; i < 25; i++)
 	{
 		m_barriers.push_back(Barrier());
 	}
@@ -28,7 +28,7 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 	m_barriers.at(3).setPositions(sf::Vector2f{ 50.0f, 750.0f }, sf::Vector2f{ 200.0f, 850.0f }); // left outlane bottom
 
 	m_barriers.at(4).setPositions(sf::Vector2f{ 425.0f, 750.0f }, sf::Vector2f{ 500.0f, 700.0f }); // right slope
-	m_barriers.at(5).setPositions(sf::Vector2f{ 550.0f, 900.0f }, sf::Vector2f{ 550.0f, 50.0f }); // right wall
+	m_barriers.at(5).setPositions(sf::Vector2f{ 550.0f, 900.0f }, sf::Vector2f{ 550.0f, 125.0f }); // right wall
 	m_barriers.at(6).setPositions(sf::Vector2f{ 500.0f, 700.0f }, sf::Vector2f{ 500.0f, 650.0f }); // right up
 	m_barriers.at(7).setPositions(sf::Vector2f{ 400.0f, 850.0f }, sf::Vector2f{ 550.0f, 750.0f }); // right outlane bottom
 
@@ -50,6 +50,12 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_barriers.at(19).setPositions(sf::Vector2f{ 426.0f, 750.0f }, sf::Vector2f{ 501.0f, 700.0f }); // right slope INV
 	m_barriers.at(20).setPositions(sf::Vector2f{ 501.0f, 700.0f }, sf::Vector2f{ 501.0f, 650.0f }); // right up INV
+
+	m_barriers.at(21).setPositions(sf::Vector2f{ 550.0f, 800.0f }, sf::Vector2f{ 565.0f, 800.0f }); // left spring stopper
+	m_barriers.at(22).setPositions(sf::Vector2f{ 585.0f, 800.0f }, sf::Vector2f{ 600.0f, 800.0f }); // right spring stopper
+
+	m_barriers.at(23).setPositions(sf::Vector2f{ 600.0f, 900.0f }, sf::Vector2f{ 600.0f, 100.0f }); // far right wall
+	m_barriers.at(24).setPositions(sf::Vector2f{ 600.0f, 100.0f }, sf::Vector2f{ 550.0f, 50.0f }); // top of spring angle
 
 	float offset{ 0.0f };
 
