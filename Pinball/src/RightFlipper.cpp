@@ -24,9 +24,9 @@ void RightFlipper::setupSprite()
 
 void RightFlipper::setupBoundingBox()
 {
-	m_boundingBox.p1 = m_position;
+	m_boundingBox.p1 = m_position - sf::Vector2f{ m_width,0.f };
 
-	m_boundingBox.p2 = m_position - sf::Vector2f{ m_width,0.f };
+	m_boundingBox.p2 = m_position;
 }
 
 
@@ -34,8 +34,8 @@ void RightFlipper::setupBoundingBox()
 
 void RightFlipper::update(sf::Time t_dTime)
 {
-	m_boundingBox.p1 = m_position;
-	m_boundingBox.p2 = m_position - sf::Vector2f{ m_width * cos(m_currentRotation), m_width * sin(m_currentRotation) };
+	m_boundingBox.p1 = m_position - sf::Vector2f{ m_width * cos(m_currentRotation), m_width * sin(m_currentRotation) };
+	m_boundingBox.p2 = m_position;
 
 	move();
 

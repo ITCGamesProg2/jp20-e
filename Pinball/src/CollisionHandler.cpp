@@ -156,7 +156,7 @@ bool CollisionHandler::isColliding(Circle t_ball, Line t_entityLine)
 
 // CREDIT: This solution was inspired by Michael Rainsford's method
 
-#include <iostream>
+
 
 void CollisionHandler::contactSolver(Ball& t_ball, Line t_entityLine)
 {
@@ -178,13 +178,8 @@ void CollisionHandler::contactSolver(Ball& t_ball, Line t_entityLine)
 	// Line along which the ball needs to move to get away from the line
 	sf::Vector2f perpendicular{ thor::perpendicularVector(vectorAlongLine) };
 
-	// If the perpendicular goes through the bottom of the paddle, invert the Y
-
-	//if (angleToBall >= 0.0f) perpendicular = -perpendicular, std::cout << "Flipped" << std::endl;
-	if (perpendicular.y > 0.0f) perpendicular = -perpendicular, std::cout << "y-flipped" << std::endl;
-
 	// What do we need to move the ball by to stop it colliding with the line?
-	sf::Vector2f moveBy{ thor::unitVector(perpendicular) * t_ball.getBounds().r };
+	sf::Vector2f moveBy{ thor::unitVector(-perpendicular) * t_ball.getBounds().r };
 
 	sf::Vector2f newBallPos = pointOfCollision + moveBy;
 

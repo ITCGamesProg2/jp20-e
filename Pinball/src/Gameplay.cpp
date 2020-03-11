@@ -3,7 +3,7 @@
 Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager) :
 	m_font{ t_font },
 	m_manager{ t_manager },
-	ORIGINAL_BALL_POS{ 325.0f,75.0f },
+	ORIGINAL_BALL_POS{ 275.0f,75.0f },
 	ORIGINAL_BALL_VELOCITY{ 0.0f,0.0f },
 	BOTTOM_OF_SCREEN{ 900.0f }
 {
@@ -24,9 +24,11 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_barriers.at(0).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 600.0f });
 	m_barriers.at(1).setPositions(sf::Vector2f{ 50.0f, 600.0f }, sf::Vector2f{ 175.0f, 750.0f });
-	m_barriers.at(2).setPositions(sf::Vector2f{ 550.0f, 50.0f }, sf::Vector2f{ 550.0f, 600.0f });
-	m_barriers.at(3).setPositions(sf::Vector2f{ 550.0f, 600.0f }, sf::Vector2f{ 425.0f, 750.0f });
-	m_barriers.at(4).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 550.0f, 50.0f });
+
+	m_barriers.at(3).setPositions(sf::Vector2f{ 425.0f, 750.0f }, sf::Vector2f{ 550.0f, 600.0f });
+	m_barriers.at(2).setPositions(sf::Vector2f{ 550.0f, 600.0f }, sf::Vector2f{ 550.0f, 50.0f });
+
+	m_barriers.at(4).setPositions(sf::Vector2f{ 550.0f, 50.0f }, sf::Vector2f{ 50.0f, 50.0f });
 
 	float offset{ 0.0f };
 
