@@ -8,18 +8,31 @@ Spring::Spring()
 
 void Spring::setPosition(sf::Vector2f t_pos)
 {
+	m_position = t_pos;
 }
 
 ///////////////////////////////////////////////////////////////
 
 const sf::Vector2f Spring::getPosition() const
 {
-	return sf::Vector2f();
+	return m_position;
 }
 
 ///////////////////////////////////////////////////////////////
 
-CollisionBox const& Spring::getBounds() const
+Line const& Spring::getBounds() const
 {
-	// TODO: insert return statement here
+	return m_boundingBox;
+}
+
+///////////////////////////////////////////////////////////////
+
+void Spring::setupSprite()
+{
+}
+
+///////////////////////////////////////////////////////////////
+
+void Spring::setupBoundingBox()
+{
 }
