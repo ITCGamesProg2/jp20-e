@@ -109,6 +109,11 @@ void Gameplay::update(sf::Time t_dTime)
 		m_rightFlipper.flick();
 	}
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		m_spring.pullBack();
+	}
+
 	if (m_ball.getPosition().y >= BOTTOM_OF_SCREEN)
 	{
 		respawnBall();

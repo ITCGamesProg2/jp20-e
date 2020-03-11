@@ -15,11 +15,15 @@ public:
 	void update(sf::Time t_dTime);
 
 	/// <summary>
+	/// @brief Moves the spring down toward its maximum compression
+	/// </summary>
+	void pullBack();
+
+	/// <summary>
 	/// @brief Returns the spring shape
 	/// </summary>
 	/// <param name="t_window"></param>
 	sf::RectangleShape getShape();
-
 
 	/// @brief Sets the position of the spring
 	/// </summary>
@@ -49,6 +53,12 @@ private:
 
 	float m_width;
 	float m_height;
+
+	// How far the spring can stretch and squash
+	const float MIN_COMPRESSION;
+	const float MAX_COMPRESSION;
+
+	float m_currentCompression;
 
 	Line m_boundingBox;
 };
