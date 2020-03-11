@@ -3,7 +3,7 @@
 Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager) :
 	m_font{ t_font },
 	m_manager{ t_manager },
-	ORIGINAL_BALL_POS{ 175.0f, 75.0f },
+	ORIGINAL_BALL_POS{ 575.0f, 75.0f },
 	ORIGINAL_BALL_VELOCITY{ 0.0f,0.0f },
 	BOTTOM_OF_SCREEN{ 900.0f }
 {
@@ -131,6 +131,8 @@ void Gameplay::update(sf::Time t_dTime)
 
 	CollisionHandler::resolveCollision(m_ball, m_leftFlipper, EntityType::Flipper);
 	CollisionHandler::resolveCollision(m_ball, m_rightFlipper, EntityType::Flipper);
+
+	CollisionHandler::resolveCollision(m_ball, m_spring.getBounds(), EntityType::Spring);
 }
 
 ///////////////////////////////////////////////////////////////
