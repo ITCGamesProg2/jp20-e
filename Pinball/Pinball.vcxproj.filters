@@ -122,6 +122,9 @@
     <ClCompile Include="src\MushroomBumper.cpp">
       <Filter>Source Files\Game Entities\Obstacles</Filter>
     </ClCompile>
+    <ClCompile Include="src\Spring.cpp">
+      <Filter>Source Files\Game Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
@@ -218,6 +221,9 @@
       <Filter>Header Files\Game Entities\Obstacles</Filter>
     </ClInclude>
     <ClInclude Include="include\EntityType.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Spring.h">
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
   </ItemGroup>
