@@ -2,9 +2,7 @@
 
 enum class EntityType
 {
-<<<<<<< HEAD
-
-=======
+	Barrier,
 	Hole,
 	Rail,
 	Target,
@@ -14,5 +12,4 @@ enum class EntityType
 	MushroomBumper,
 	Spinner,
 	Stopper
->>>>>>> master
 };

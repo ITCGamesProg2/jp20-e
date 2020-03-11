@@ -2,6 +2,7 @@
 
 #include <Thor/Vectors.hpp>
 #include "Subject.h"
+#include "EntityType.h"
 
 class GameEntity;
 class Flipper;
@@ -41,10 +42,10 @@ public:
 	CollisionHandler() = default;
 	~CollisionHandler() = default;
 
-	static void resolveCollision(Ball& t_ball, Circle t_entityCircle);
-	static void resolveCollision(Ball& t_ball, AABB t_entityAABB);
-	static void resolveCollision(Ball& t_ball, Line t_entityLine);
-	static void resolveCollision(Ball& t_ball, Flipper& t_flipper);
+	static void resolveCollision(Ball& t_ball, Circle t_entityCircle, EntityType t_type);
+	static void resolveCollision(Ball& t_ball, AABB t_entityAABB, EntityType t_type);
+	static void resolveCollision(Ball& t_ball, Line t_entityLine, EntityType t_type);
+	static void resolveCollision(Ball& t_ball, Flipper& t_flipper, EntityType t_type);
 
 private:
 
@@ -65,7 +66,7 @@ private:
 	/// <summary>
 	/// @brief Get the vector along which our ball has rebounded
 	/// </summary>
-	static sf::Vector2f getReboundVector(sf::Vector2f t_velocity, sf::Vector2f t_surfaceOfContact);
+	static sf::Vector2f getReboundVector(sf::Vector2f t_velocity, sf::Vector2f t_surfaceOfContact, EntityType t_type);
 
 	/// <summary>
 	/// @brief Get the distance between two points in 2D
