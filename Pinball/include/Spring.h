@@ -42,6 +42,7 @@ private:
 	void setupSprite();
 	void setupBoundingBox();
 
+	void updatePosition();
 	void updateBoundingBox();
 
 	sf::RectangleShape m_body;

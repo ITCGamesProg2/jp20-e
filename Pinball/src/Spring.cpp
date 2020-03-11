@@ -28,7 +28,15 @@ void Spring::setupBoundingBox()
 
 void Spring::update(sf::Time t_dTime)
 {
+	updatePosition();
 	updateBoundingBox();
+}
+
+///////////////////////////////////////////////////////////////
+
+void Spring::updatePosition()
+{
+	m_body.setPosition(m_position);
 }
 
 ///////////////////////////////////////////////////////////////

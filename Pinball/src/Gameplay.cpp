@@ -81,6 +81,7 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 	m_mushroomBumpers.at(1).setPosition(sf::Vector2f{ 450.0f, 200.0f });
 	m_mushroomBumpers.at(2).setPosition(sf::Vector2f{ 300.0f, 400.0f });
 
+	m_spring.setPosition({ 550.0f, 800.0f });
 }
 
 ///////////////////////////////////////////////////////////////
@@ -93,6 +94,7 @@ void Gameplay::processEvents(sf::Event t_event)
 
 void Gameplay::update(sf::Time t_dTime)
 {
+	m_spring.update(t_dTime);
 	m_ball.update(t_dTime);
 	m_leftFlipper.update(t_dTime);
 	m_rightFlipper.update(t_dTime);
@@ -155,6 +157,8 @@ void Gameplay::render(sf::RenderWindow& t_window)
 
 	t_window.draw(m_leftFlipper.getShape());
 	t_window.draw(m_rightFlipper.getShape());
+
+	t_window.draw(m_spring.getShape());
 }
 
 ///////////////////////////////////////////////////////////////
