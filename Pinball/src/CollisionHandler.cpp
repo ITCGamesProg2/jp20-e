@@ -177,6 +177,7 @@ void CollisionHandler::contactSolver(Ball& t_ball, Line t_entityLine)
 	sf::Vector2f perpendicular{ thor::perpendicularVector(vectorAlongLine) };
 
 	// If the perpendicular goes through the bottom of the paddle, invert the Y
+	if (angleToBall <= 0.0f) perpendicular = -perpendicular;
 	if (perpendicular.y > 0.0f) perpendicular = -perpendicular;
 
 	// What do we need to move the ball by to stop it colliding with the line?
