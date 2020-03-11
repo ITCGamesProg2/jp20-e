@@ -1,11 +1,11 @@
 #include "CollisionHandler.h"
 
-void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
+void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle, EntityType t_type)
 {
 	if (isColliding(t_ball.getBounds(), t_entityCircle))
 	{
 		sf::Vector2f surfaceOfContact{ getSurfaceOfContact(t_ball.getBounds().p, t_entityCircle.p) };
-		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), surfaceOfContact) };
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), surfaceOfContact, t_type) };
 
 		t_ball.setVelocity(finalVelocity);
 
@@ -15,11 +15,11 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Circle t_entityCircle)
 
 ///////////////////////////////////////////////////////////////
 
-void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB)
+void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB, EntityType t_type)
 {
 	if (isColliding(t_ball.getBounds(), t_entityAABB))
 	{
-		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), sf::Vector2f{1.0f,0.0f} )};
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), sf::Vector2f{1.0f,0.0f}, t_type)};
 
 		t_ball.setVelocity(finalVelocity);
 
@@ -29,14 +29,14 @@ void CollisionHandler::resolveCollision(Ball& t_ball, AABB t_entityAABB)
 
 ///////////////////////////////////////////////////////////////
 
-void CollisionHandler::resolveCollision(Ball& t_ball, Flipper& t_flipper)
+void CollisionHandler::resolveCollision(Ball& t_ball, Flipper& t_flipper, EntityType t_type)
 {
 	Line line{ t_flipper.getBounds() };
 
 	// If our 'look-ahead' line intersects the flipper, OR our circle collides with the flipper
 	if (isColliding(t_ball.getBounds(), line))
 	{
-		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {line.p2 - line.p1}) };
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {line.p2 - line.p1}, t_type) };
 		
 		t_ball.setVelocity(finalVelocity);
 
@@ -46,12 +46,12 @@ void CollisionHandler::resolveCollision(Ball& t_ball, Flipper& t_flipper)
 
 ///////////////////////////////////////////////////////////////
 
-void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine)
+void CollisionHandler::resolveCollision(Ball& t_ball, Line t_entityLine, EntityType t_type)
 {
 	// If our 'look-ahead' line intersects the line, OR our circle collides with the line
 	if (isColliding(t_ball.getBounds(), t_entityLine))
 	{
-		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {t_entityLine.p2 - t_entityLine.p1}) };
+		sf::Vector2f finalVelocity{ getReboundVector(t_ball.getVelocity(), {t_entityLine.p2 - t_entityLine.p1}, t_type) };
 
 		t_ball.setVelocity(finalVelocity);
 
@@ -156,6 +156,8 @@ bool CollisionHandler::isColliding(Circle t_ball, Line t_entityLine)
 
 // CREDIT: This solution was inspired by Michael Rainsford's method
 
+#include <iostream>
+
 void CollisionHandler::contactSolver(Ball& t_ball, Line t_entityLine)
 {
 	// Get a vector along our line
@@ -177,8 +179,9 @@ void CollisionHandler::contactSolver(Ball& t_ball, Line t_entityLine)
 	sf::Vector2f perpendicular{ thor::perpendicularVector(vectorAlongLine) };
 
 	// If the perpendicular goes through the bottom of the paddle, invert the Y
-	if (angleToBall <= 0.0f) perpendicular = -perpendicular;
-	if (perpendicular.y > 0.0f) perpendicular = -perpendicular;
+
+	//if (angleToBall >= 0.0f) perpendicular = -perpendicular, std::cout << "Flipped" << std::endl;
+	if (perpendicular.y > 0.0f) perpendicular = -perpendicular, std::cout << "y-flipped" << std::endl;
 
 	// What do we need to move the ball by to stop it colliding with the line?
 	sf::Vector2f moveBy{ thor::unitVector(perpendicular) * t_ball.getBounds().r };
@@ -197,15 +200,49 @@ sf::Vector2f CollisionHandler::getSurfaceOfContact(sf::Vector2f t_ball, sf::Vect
 
 ///////////////////////////////////////////////////////////////
 
-sf::Vector2f CollisionHandler::getReboundVector(sf::Vector2f t_velocity, sf::Vector2f t_surfaceOfContact)
+sf::Vector2f CollisionHandler::getReboundVector(sf::Vector2f t_velocity, sf::Vector2f t_surfaceOfContact, EntityType t_type)
 {
+	float coefficientOfRestitution{ 0.0f };
+
+	switch (t_type)
+	{
+	case EntityType::Barrier:
+		coefficientOfRestitution = -0.8f;
+		break;
+	case EntityType::Flipper:
+		coefficientOfRestitution = -0.8f;
+		break;
+	case EntityType::Hole:
+		break;
+	case EntityType::MushroomBumper:
+		t_velocity = thor::unitVector(t_velocity) * 20.0f;
+		coefficientOfRestitution = -1.0f;
+		break;
+	case EntityType::Peg:
+		coefficientOfRestitution = -0.8f;
+		break;
+	case EntityType::Rail:
+		break;
+	case EntityType::Slingshot:
+		break;
+	case EntityType::Spinner:
+		break;
+	case EntityType::Stopper:
+		break;
+	case EntityType::Target:
+		break;
+	default:
+		coefficientOfRestitution = -10.0f;
+		break;
+	}
+	
 	// Get angle from origin
 	float angle = thor::polarAngle(t_surfaceOfContact);
 
 	// Rotate velocity by that angle
 	thor::rotate(t_velocity, -angle);
 
-	t_velocity.y *= -0.8f;
+	t_velocity.y *= coefficientOfRestitution;
 
 	// Rotate velocity back
 	thor::rotate(t_velocity, angle);
