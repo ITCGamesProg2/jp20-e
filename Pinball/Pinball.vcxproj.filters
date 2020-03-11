@@ -45,6 +45,15 @@
     <Filter Include="Source Files\Game Entities\Obstacles">
       <UniqueIdentifier>{65cba42b-20d1-4e95-8a4f-8cdda96cd343}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ASSETS">
+      <UniqueIdentifier>{96fc068b-a4af-4222-8561-2ef0d4583a6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lib">
+      <UniqueIdentifier>{773531a1-69d3-4a0c-9519-c94897ed975a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSETS\LEVELS">
+      <UniqueIdentifier>{8d38f864-b3e4-41da-a36e-6dc79f84e9d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Ball.cpp">
@@ -122,6 +131,9 @@
     <ClCompile Include="src\MushroomBumper.cpp">
       <Filter>Source Files\Game Entities\Obstacles</Filter>
     </ClCompile>
+    <ClCompile Include="src\LevelLoader.cpp">
+      <Filter>Source Files</Filter>
+	</ClCompile>
     <ClCompile Include="src\Spring.cpp">
       <Filter>Source Files\Game Entities</Filter>
     </ClCompile>
@@ -223,6 +235,19 @@
     <ClInclude Include="include\EntityType.h">
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>
+    <ClInclude Include="include\LevelLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\libyaml-cppmdd.lib">
+      <Filter>lib</Filter>
+    </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ASSETS\LEVELS\level1.yaml">
+      <Filter>ASSETS\LEVELS</Filter>
+    </None>
     <ClInclude Include="include\Spring.h">
       <Filter>Header Files\Game Entities</Filter>
     </ClInclude>

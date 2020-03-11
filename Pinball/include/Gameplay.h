@@ -11,6 +11,7 @@
 #include "Peg.h"
 #include "Barrier.h"
 #include "MushroomBumper.h"
+#include "LevelLoader.h"
 #include "Spring.h"
 
 class ScreenManager;
@@ -72,6 +73,8 @@ private:
 	const float BOTTOM_OF_SCREEN;
 
 	ScreenManager* m_manager;
+
+	LevelData m_level;
 };
 
 #include "ScreenManager.h"

@@ -7,6 +7,20 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 	ORIGINAL_BALL_VELOCITY{ 0.0f,0.0f },
 	BOTTOM_OF_SCREEN{ 900.0f }
 {
+
+	int currentLevel = 1;
+	try
+	{
+		LevelLoader::load(currentLevel, m_level);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << "Level loading failure." << std::endl;
+		std::cout << e.what() << std::endl;
+		throw e;
+	}
+
+
 	m_text.setFont(m_font);
 
 	m_text.setFillColor(sf::Color::Black);
@@ -15,7 +29,7 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	f_switchScreen = t_switchScreen;
 
-	m_ball.setPosition(ORIGINAL_BALL_POS);
+	m_ball.setPosition(m_level.m_ball.m_position);
 
 	for (int i = 0; i < 25; i++)
 	{
