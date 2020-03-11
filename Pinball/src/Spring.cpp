@@ -1,0 +1,25 @@
+#include "Spring.h"
+
+Spring::Spring()
+{
+}
+
+///////////////////////////////////////////////////////////////
+
+void Spring::setPosition(sf::Vector2f t_pos)
+{
+}
+
+///////////////////////////////////////////////////////////////
+
+const sf::Vector2f Spring::getPosition() const
+{
+	return sf::Vector2f();
+}
+
+///////////////////////////////////////////////////////////////
+
+CollisionBox const& Spring::getBounds() const
+{
+	// TODO: insert return statement here
+}

@@ -158,6 +158,7 @@
     <ClCompile Include="src\ScreenManager.cpp" />
     <ClCompile Include="src\Settings.cpp" />
     <ClCompile Include="src\Splash.cpp" />
+    <ClCompile Include="src\Spring.cpp" />
     <ClCompile Include="src\Subject.cpp" />
     <ClCompile Include="src\TableBuilder.cpp" />
     <ClCompile Include="src\VFX.cpp" />
@@ -192,6 +193,7 @@
     <ClInclude Include="include\ScreenType.h" />
     <ClInclude Include="include\Settings.h" />
     <ClInclude Include="include\Splash.h" />
+    <ClInclude Include="include\Spring.h" />
     <ClInclude Include="include\Subject.h" />
     <ClInclude Include="include\TableBuilder.h" />
     <ClInclude Include="include\VFX.h" />
