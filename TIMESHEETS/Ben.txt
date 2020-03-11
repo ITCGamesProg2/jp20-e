@@ -16,5 +16,6 @@ Session 14 Start: 10:00 End: 11:00 (Stopping ball from 'sinking through' flipper
 Session 15 Start: 12:00 End: 13:00 (Added left and right flipper) (10/03)
 Session 16 Start: 14:00 End: 16:00 (Improving ball/flipper collisions) (10/03)
 Session 17 Start: 11:00 End: 12:30 (Continuing to improve collisions, and adding hooks to check entity type) (11/03)
+Session 18 Start: 13:30 End: 14:30 (Drawing game board, fine tuning gravity and CoE) (11/03)
 
-Total time: 17:10
+Total time: 18:10
