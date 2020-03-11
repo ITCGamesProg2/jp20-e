@@ -9,6 +9,7 @@
 #include <vector>
 #include "Barrier.h"
 #include "MushroomBumper.h"
+#include "LevelLoader.h"
 
 class ScreenManager;
 
@@ -67,6 +68,8 @@ private:
 	const float BOTTOM_OF_SCREEN{ 900.0f };
 
 	ScreenManager* m_manager;
+
+	LevelData m_level;
 };
 
 #include "ScreenManager.h"
