@@ -226,6 +226,9 @@ sf::Vector2f CollisionHandler::getReboundVector(sf::Vector2f t_velocity, sf::Vec
 		break;
 	case EntityType::Target:
 		break;
+	case EntityType::Spring:
+		coefficientOfRestitution = -0.5f;
+		break;
 	default:
 		coefficientOfRestitution = -10.0f;
 		break;

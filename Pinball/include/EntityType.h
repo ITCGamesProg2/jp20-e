@@ -11,5 +11,6 @@ enum class EntityType
 	Slingshot,
 	MushroomBumper,
 	Spinner,
-	Stopper
+	Stopper,
+	Spring
 };
