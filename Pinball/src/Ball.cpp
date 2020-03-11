@@ -7,7 +7,7 @@ Ball::Ball() :
 	setupBoundingBox();
 
 	m_velocity = { 00.0f, 0.0f };
-	m_gravity = { 0.0f, 9.8f };
+	m_gravity = { 0.0f, 12.0f };
 }
 
 ///////////////////////////////////////////////////////////////

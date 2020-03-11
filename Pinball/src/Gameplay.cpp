@@ -2,7 +2,10 @@
 
 Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t_type)> t_switchScreen, ScreenManager* t_manager) :
 	m_font{ t_font },
-	m_manager{ t_manager }
+	m_manager{ t_manager },
+	ORIGINAL_BALL_POS{ 175.0f,75.0f },
+	ORIGINAL_BALL_VELOCITY{ 0.0f,0.0f },
+	BOTTOM_OF_SCREEN{ 900.0f }
 {
 
 	int currentLevel = 1;
@@ -28,16 +31,30 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 	m_ball.setPosition(m_level.m_ball.m_position);
 
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 15; i++)
 	{
 		m_barriers.push_back(Barrier());
 	}
 
-	m_barriers.at(0).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 600.0f });
-	m_barriers.at(1).setPositions(sf::Vector2f{ 50.0f, 600.0f }, sf::Vector2f{ 175.0f, 750.0f });
-	m_barriers.at(2).setPositions(sf::Vector2f{ 550.0f, 50.0f }, sf::Vector2f{ 550.0f, 600.0f });
-	m_barriers.at(3).setPositions(sf::Vector2f{ 550.0f, 600.0f }, sf::Vector2f{ 425.0f, 750.0f });
-	m_barriers.at(4).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 600.0f });
+	m_barriers.at(0).setPositions(sf::Vector2f{ 50.0f, 50.0f }, sf::Vector2f{ 50.0f, 900.0f }); // left wall
+	m_barriers.at(1).setPositions(sf::Vector2f{ 100.0f, 700.0f }, sf::Vector2f{ 175.0f, 750.0f }); // left slope
+	m_barriers.at(2).setPositions(sf::Vector2f{ 100.0f, 650.0f }, sf::Vector2f{ 100.0f, 700.0f }); // left up
+	m_barriers.at(3).setPositions(sf::Vector2f{ 50.0f, 750.0f }, sf::Vector2f{ 200.0f, 850.0f }); // left outlane bottom
+
+	m_barriers.at(4).setPositions(sf::Vector2f{ 425.0f, 750.0f }, sf::Vector2f{ 500.0f, 700.0f }); // right slope
+	m_barriers.at(5).setPositions(sf::Vector2f{ 550.0f, 900.0f }, sf::Vector2f{ 550.0f, 50.0f }); // right wall
+	m_barriers.at(6).setPositions(sf::Vector2f{ 500.0f, 700.0f }, sf::Vector2f{ 500.0f, 650.0f }); // right up
+	m_barriers.at(7).setPositions(sf::Vector2f{ 400.0f, 850.0f }, sf::Vector2f{ 550.0f, 750.0f }); // right outlane bottom
+
+	m_barriers.at(8).setPositions(sf::Vector2f{ 550.0f, 50.0f }, sf::Vector2f{ 50.0f, 50.0f }); // ceiling
+
+	m_barriers.at(9).setPositions(sf::Vector2f{ 50.0f, 400.0f }, sf::Vector2f{ 100.0f, 450.0f }); // left bumper top
+	m_barriers.at(10).setPositions(sf::Vector2f{ 100.0f, 450.0f }, sf::Vector2f{ 100.0f, 550.0f }); // left bumper middle
+	m_barriers.at(11).setPositions(sf::Vector2f{ 100.0f, 550.0f }, sf::Vector2f{ 50.0f, 600.0f }); // left bumper bottom
+
+	m_barriers.at(12).setPositions(sf::Vector2f{ 500.0f, 450.0f }, sf::Vector2f{ 550.0f, 400.0f }); // right bumper top
+	m_barriers.at(13).setPositions(sf::Vector2f{ 500.0f, 550.0f }, sf::Vector2f{ 500.0f, 450.0f }); // right bumper middle
+	m_barriers.at(14).setPositions(sf::Vector2f{ 550.0f, 600.0f }, sf::Vector2f{ 500.0f, 550.0f }); // right bumper bottom
 
 	float offset{ 0.0f };
 
@@ -102,21 +119,21 @@ void Gameplay::update(sf::Time t_dTime)
 	
 	for (Barrier& b : m_barriers)
 	{
-		CollisionHandler::resolveCollision(m_ball, b.getBounds());
+		CollisionHandler::resolveCollision(m_ball, b.getBounds(), EntityType::Barrier);
 	}
 
 	for (Peg& p : m_pegs)
 	{
-		CollisionHandler::resolveCollision(m_ball, p.getBounds());
+		CollisionHandler::resolveCollision(m_ball, p.getBounds(), EntityType::Peg);
 	}
 
 	for (MushroomBumper& m : m_mushroomBumpers)
 	{
-		CollisionHandler::resolveCollision(m_ball, m.getBounds());
+		CollisionHandler::resolveCollision(m_ball, m.getBounds(), EntityType::MushroomBumper);
 	}
 
-	CollisionHandler::resolveCollision(m_ball, m_leftFlipper);
-	CollisionHandler::resolveCollision(m_ball, m_rightFlipper);
+	CollisionHandler::resolveCollision(m_ball, m_leftFlipper, EntityType::Flipper);
+	CollisionHandler::resolveCollision(m_ball, m_rightFlipper, EntityType::Flipper);
 }
 
 ///////////////////////////////////////////////////////////////

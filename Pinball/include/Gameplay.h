@@ -1,12 +1,14 @@
 #pragma once
 
+#include <vector>
+
 #include "CollisionHandler.h"
 #include "BaseScreen.h"
+#include "EntityType.h"
 #include "LeftFlipper.h"
 #include "RightFlipper.h"
 #include "Ball.h"
 #include "Peg.h"
-#include <vector>
 #include "Barrier.h"
 #include "MushroomBumper.h"
 #include "LevelLoader.h"
@@ -62,10 +64,10 @@ private:
 	// on top of flipper
 	//const sf::Vector2f ORIGINAL_BALL_POS{ 240.0f, 780.0f };
 
-	const sf::Vector2f ORIGINAL_BALL_POS{ 200.0f, 100.0f };
+	const sf::Vector2f ORIGINAL_BALL_POS;
 
-	const sf::Vector2f ORIGINAL_BALL_VELOCITY{ 0.0f, 0.0f };
-	const float BOTTOM_OF_SCREEN{ 900.0f };
+	const sf::Vector2f ORIGINAL_BALL_VELOCITY;
+	const float BOTTOM_OF_SCREEN;
 
 	ScreenManager* m_manager;
 

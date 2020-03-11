@@ -2,6 +2,7 @@
 
 enum class EntityType
 {
+	Barrier,
 	Hole,
 	Rail,
 	Target,
