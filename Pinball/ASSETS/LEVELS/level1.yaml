@@ -1,0 +1,32 @@
+background:
+   file: noFileYet
+ball:
+   position: {x: 100, y: 100}
+spring:
+   position: {x: 0, y: 0}
+leftFlipper:
+   position: {x: 0, y: 0}
+rightFlipper:
+   position: {x: 0, y: 0}
+obstacles: 
+   - type: Peg
+     position: {x: 0, y: 0}
+   - type: Target
+     position: {x: 0, y: 0}
+   - type: Hole
+     position: {x: 0, y: 0}
+   - type: MushroomBumper
+     position: {x: 0, y: 0}
+   - type: Slingshot
+     position: {x: 0, y: 0}
+   - type: Spinner
+     position: {x: 0, y: 0}
+   - type: Stopper
+     position: {x: 0, y: 0}
+   - type: Rail
+     position: {x: 0, y: 0}
+barriers:
+   - start: {x: 0, y: 0}
+     end: {x: 0, y: 0}
+   - start: {x: 0, y: 0}
+     end: {x: 0, y: 0}
