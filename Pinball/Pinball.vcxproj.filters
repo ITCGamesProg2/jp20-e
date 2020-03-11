@@ -217,5 +217,8 @@
     <ClInclude Include="include\MushroomBumper.h">
       <Filter>Header Files\Game Entities\Obstacles</Filter>
     </ClInclude>
+    <ClInclude Include="include\EntityType.h">
+      <Filter>Header Files\Game Entities</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

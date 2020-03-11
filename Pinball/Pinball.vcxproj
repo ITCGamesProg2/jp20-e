@@ -171,6 +171,7 @@
     <ClInclude Include="include\Board.h" />
     <ClInclude Include="include\CollisionHandler.h" />
     <ClInclude Include="include\Credits.h" />
+    <ClInclude Include="include\EntityType.h" />
     <ClInclude Include="include\Event.h" />
     <ClInclude Include="include\GameEntity.h" />
     <ClInclude Include="include\LeftFlipper.h" />
