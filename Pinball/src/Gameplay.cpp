@@ -106,30 +106,30 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 ///////////////////////////////////////////////////////////////
 
-void Gameplay::processEvents(sf::Event t_event)
+void Gameplay::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void Gameplay::update(sf::Time t_dTime)
+void Gameplay::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 	m_spring.update(t_dTime);
 	m_ball.update(t_dTime);
 	m_leftFlipper.update(t_dTime);
 	m_rightFlipper.update(t_dTime);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	if (t_controller.m_currentState.LB)
 	{
 		m_leftFlipper.flick();
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	if (t_controller.m_currentState.RB)
 	{
 		m_rightFlipper.flick();
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	if (t_controller.m_currentState.Y)
 	{
 		m_spring.pullBack();
 	}

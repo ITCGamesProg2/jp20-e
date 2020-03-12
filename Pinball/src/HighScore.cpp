@@ -15,13 +15,13 @@ HighScore::HighScore(sf::Font& t_font, std::function<void(ScreenManager*, Screen
 
 ///////////////////////////////////////////////////////////////
 
-void HighScore::processEvents(sf::Event t_event)
+void HighScore::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void HighScore::update(sf::Time t_dTime)
+void HighScore::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

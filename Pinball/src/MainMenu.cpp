@@ -15,13 +15,13 @@ MainMenu::MainMenu(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 ///////////////////////////////////////////////////////////////
 
-void MainMenu::processEvents(sf::Event t_event)
+void MainMenu::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void MainMenu::update(sf::Time t_dTime)
+void MainMenu::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

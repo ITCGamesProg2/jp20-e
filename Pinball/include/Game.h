@@ -5,6 +5,7 @@
 #include "ScreenManager.h"
 #include <iostream>
 #include <array>
+#include "Xbox360Controller.h"
 
 class Game
 {
@@ -39,5 +40,7 @@ private:
 	bool m_exitGame;
 
 	sf::Font m_font;
+
+	Xbox360Controller m_controller;
 };
 #endif
