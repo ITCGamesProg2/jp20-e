@@ -117,7 +117,15 @@ void Gameplay::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 	{
 		respawnBall();
 	}
+
+
+
+	if (t_controller.m_currentState.X && !t_controller.m_previousState.X)
+	{
+		m_ball.setVelocity(sf::Vector2f(m_ball.getVelocity().x *-1.0f, m_ball.getVelocity().y * -1.0f));
+	}
 	
+
 	for (Barrier& b : m_barriers)
 	{
 		CollisionHandler::resolveCollision(m_ball, b.getBounds(), EntityType::Barrier);
