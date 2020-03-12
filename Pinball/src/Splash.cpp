@@ -15,9 +15,9 @@ Splash::Splash(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType t
 
 ///////////////////////////////////////////////////////////////
 
-void Splash::processEvents(sf::Event t_event)
+void Splash::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
-	if (sf::Event::KeyPressed == t_event.type)
+	if (t_controller.m_currentState.A)
 	{
 		f_switchScreen(m_manager, ScreenType::MAIN_MENU);
 	}
@@ -25,7 +25,7 @@ void Splash::processEvents(sf::Event t_event)
 
 ///////////////////////////////////////////////////////////////
 
-void Splash::update(sf::Time t_dTime)
+void Splash::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

@@ -16,13 +16,13 @@ TableBuilder::TableBuilder(sf::Font& t_font, std::function<void(ScreenManager*, 
 
 ///////////////////////////////////////////////////////////////
 
-void TableBuilder::processEvents(sf::Event t_events)
+void TableBuilder::processEvents(sf::Event t_events, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void TableBuilder::update(sf::Time t_dTime)
+void TableBuilder::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

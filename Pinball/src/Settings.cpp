@@ -15,13 +15,13 @@ Settings::Settings(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 
 ///////////////////////////////////////////////////////////////
 
-void Settings::processEvents(sf::Event t_event)
+void Settings::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void Settings::update(sf::Time t_dTime)
+void Settings::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

@@ -72,16 +72,16 @@ void ScreenManager::setScreen(ScreenType t_screen)
 
 ///////////////////////////////////////////////////////////////
 
-void ScreenManager::processEvents(sf::Event t_event)
+void ScreenManager::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
-	m_activeScreen->processEvents(t_event);
+	m_activeScreen->processEvents(t_event, t_controller);
 }
 
 ///////////////////////////////////////////////////////////////
 
-void ScreenManager::update(sf::Time t_dTime)
+void ScreenManager::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
-	m_activeScreen->update(t_dTime);
+	m_activeScreen->update(t_dTime, t_controller);
 }
 
 ///////////////////////////////////////////////////////////////

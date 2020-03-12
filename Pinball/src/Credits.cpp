@@ -15,13 +15,13 @@ Credits::Credits(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType
 
 ///////////////////////////////////////////////////////////////
 
-void Credits::processEvents(sf::Event t_event)
+void Credits::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void Credits::update(sf::Time t_dTime)
+void Credits::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

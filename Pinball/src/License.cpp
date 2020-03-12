@@ -16,14 +16,14 @@ License::License(sf::Font& t_font, std::function<void(ScreenManager*, ScreenType
 
 ///////////////////////////////////////////////////////////////
 
-void License::processEvents(sf::Event t_event)
+void License::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 	
 }
 
 ///////////////////////////////////////////////////////////////
 
-void License::update(sf::Time t_dTime)
+void License::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 	m_cumulativeTime += t_dTime;
 

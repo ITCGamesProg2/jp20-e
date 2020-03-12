@@ -15,13 +15,13 @@ Instructions::Instructions(sf::Font& t_font, std::function<void(ScreenManager*, 
 
 ///////////////////////////////////////////////////////////////
 
-void Instructions::processEvents(sf::Event t_event)
+void Instructions::processEvents(sf::Event t_event, Xbox360Controller& t_controller)
 {
 }
 
 ///////////////////////////////////////////////////////////////
 
-void Instructions::update(sf::Time t_dTime)
+void Instructions::update(sf::Time t_dTime, Xbox360Controller& t_controller)
 {
 }
 

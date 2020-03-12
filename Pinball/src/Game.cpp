@@ -73,31 +73,8 @@ void Game::processEvents()
 		{
 			m_window.close();
 		}
-		if (sf::Event::KeyPressed == event.type)
-		{
-			if (sf::Keyboard::Escape == event.key.code)
-			{
-				m_exitGame = true;
-			}
 
-			// Move to the previous screen in the list. We use mod to avoid leaving the bounds of our array
-			if (sf::Keyboard::Left == event.key.code)
-			{
-				// If we're about to go below zero, go to the end of the list instead
-				(temp_screenIndex > 0) ? temp_screenIndex-- : temp_screenIndex = temp_NUM_SCREENS;
-
-				m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
-			}
-			// Move to the next screen in the list
-			if (sf::Keyboard::Right == event.key.code)
-			{
-				temp_screenIndex++;
-
-				m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
-			}
-		}
-
-		m_screenManager->processEvents(event);
+		m_screenManager->processEvents(event, m_controller);
 	}
 }
 
@@ -109,8 +86,29 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+	m_controller.update();
 
-	m_screenManager->update(t_deltaTime);
+	if (m_controller.m_currentState.Back)
+	{
+		m_exitGame = true;
+	}
+	// Move to the previous screen in the list. We use mod to avoid leaving the bounds of our array
+	if (m_controller.m_currentState.DpadLeft && !m_controller.m_previousState.DpadLeft)
+	{
+		// If we're about to go below zero, go to the end of the list instead
+		(temp_screenIndex > 0) ? temp_screenIndex-- : temp_screenIndex = temp_NUM_SCREENS;
+
+		m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
+	}
+	// Move to the next screen in the list
+	if (m_controller.m_currentState.DpadRight && !m_controller.m_previousState.DpadRight)
+	{
+		temp_screenIndex++;
+
+		m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
+	}
+
+	m_screenManager->update(t_deltaTime, m_controller);
 }
 
 ///////////////////////////////////////////////////////////////

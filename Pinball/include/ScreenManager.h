@@ -28,13 +28,13 @@ public:
 	/// @brief Passes SF events to the active screen
 	/// </summary>
 	/// <param name="t_event">SF::Event to pass</param>
-	void processEvents(sf::Event t_event);
+	void processEvents(sf::Event t_event, Xbox360Controller& t_controller);
 
 	/// <summary>
 	/// @brief Calls the update loop on the active screen
 	/// </summary>
 	/// <param name="t_dTime">time since last update</param>
-	void update(sf::Time t_dTime);
+	void update(sf::Time t_dTime, Xbox360Controller& t_controller);
 
 	/// <summary>
 	/// @brief Calls the render function on the active screen
