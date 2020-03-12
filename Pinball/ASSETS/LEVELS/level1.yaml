@@ -1,22 +1,26 @@
 background:
    file: noFileYet
 ball:
-   position: {x: 100, y: 100}
+   position: {x: 275, y: 100}
 spring:
-   position: {x: 0, y: 0}
+   position: {x: 550, y: 800}
 leftFlipper:
-   position: {x: 0, y: 0}
+   position: {x: 175, y: 750}
 rightFlipper:
-   position: {x: 0, y: 0}
+   position: {x: 425, y: 750}
 obstacles: 
    - type: Peg
-     position: {x: 0, y: 0}
+     position: {x: 300, y: 825}
    - type: Target
      position: {x: 0, y: 0}
    - type: Hole
      position: {x: 0, y: 0}
    - type: MushroomBumper
-     position: {x: 0, y: 0}
+     position: {x: 150, y: 200}
+   - type: MushroomBumper
+     position: {x: 450, y: 200}
+   - type: MushroomBumper
+     position: {x: 300, y: 400}
    - type: Slingshot
      position: {x: 0, y: 0}
    - type: Spinner
@@ -26,7 +30,53 @@ obstacles:
    - type: Rail
      position: {x: 0, y: 0}
 barriers:
-   - start: {x: 0, y: 0}
-     end: {x: 0, y: 0}
-   - start: {x: 0, y: 0}
-     end: {x: 0, y: 0}
+   - start: {x: 50, y: 50}
+     end: {x: 50, y: 900}
+   - start: {x: 100, y: 700}
+     end: {x: 175, y: 750}
+   - start: {x: 100, y: 650}
+     end: {x: 100, y: 700}
+   - start: {x: 50, y: 750}
+     end: {x: 200, y: 850}
+   - start: {x: 425, y: 750}
+     end: {x: 500, y: 700}
+   - start: {x: 550, y: 900}
+     end: {x: 550, y: 125}
+   - start: {x: 500, y: 700}
+     end: {x: 500, y: 650}
+   - start: {x: 400, y: 850}
+     end: {x: 550, y: 750}
+   - start: {x: 550, y: 50}
+     end: {x: 50, y: 50}
+   - start: {x: 50, y: 400}
+     end: {x: 100, y: 450}
+   - start: {x: 100, y: 450}
+     end: {x: 100, y: 550}
+   - start: {x: 100, y: 550}
+     end: {x: 50, y: 600}
+   - start: {x: 500, y: 450}
+     end: {x: 550, y: 400}
+   - start: {x: 500, y: 550}
+     end: {x: 500, y: 450}
+   - start: {x: 550, y: 600}
+     end: {x: 500, y: 550}
+   - start: {x: 200, y: 850}
+     end: {x: 200, y: 900}
+   - start: {x: 400, y: 900}
+     end: {x: 400, y: 850}
+   - start: {x: 174, y: 750}
+     end: {x: 99, y: 700}
+   - start: {x: 99, y: 700}
+     end: {x: 99, y: 650}
+   - start: {x: 426, y: 750}
+     end: {x: 501, y: 700}
+   - start: {x: 501, y: 700}
+     end: {x: 501, y: 650}
+   - start: {x: 550, y: 800}
+     end: {x: 565, y: 800}
+   - start: {x: 585, y: 800}
+     end: {x: 600, y: 800}
+   - start: {x: 600, y: 900}
+     end: {x: 600, y: 100}
+   - start: {x: 600, y: 100}
+     end: {x: 550, y: 50}

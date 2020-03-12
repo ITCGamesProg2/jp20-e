@@ -67,8 +67,6 @@ private:
 	// on top of flipper
 	//const sf::Vector2f ORIGINAL_BALL_POS{ 240.0f, 780.0f };
 
-	const sf::Vector2f ORIGINAL_BALL_POS;
-
 	const sf::Vector2f ORIGINAL_BALL_VELOCITY;
 	const float BOTTOM_OF_SCREEN;
 
