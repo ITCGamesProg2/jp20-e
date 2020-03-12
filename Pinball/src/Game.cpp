@@ -81,7 +81,7 @@ void Game::processEvents()
 			}
 
 			// Move to the previous screen in the list. We use mod to avoid leaving the bounds of our array
-			if (sf::Keyboard::Left == event.key.code)
+			if (m_controller.m_currentState.DpadLeft)
 			{
 				// If we're about to go below zero, go to the end of the list instead
 				(temp_screenIndex > 0) ? temp_screenIndex-- : temp_screenIndex = temp_NUM_SCREENS;
@@ -89,7 +89,7 @@ void Game::processEvents()
 				m_screenManager->setScreen(temp_screenTypeVector.at(temp_screenIndex % temp_NUM_SCREENS));
 			}
 			// Move to the next screen in the list
-			if (sf::Keyboard::Right == event.key.code)
+			if (m_controller.m_currentState.DpadRight)
 			{
 				temp_screenIndex++;
 
@@ -105,6 +105,11 @@ void Game::processEvents()
 
 void Game::update(sf::Time t_deltaTime)
 {
+	m_controller.update();
+#ifdef KEYBOARD_DEBUG
+	processKeyboardInput();
+#endif // KEYBOARD_DEBUG
+
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -138,3 +143,59 @@ catch (const std::exception& t_exception)
 {
 	std::cout << t_exception.what() << std::endl;
 }
+
+#ifdef KEYBOARD_DEBUG
+
+/////////////////////////////////////////////////////////////////////////////
+void Game::processKeyboardInput()
+{
+	// Face buttons
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+	{
+		m_controller.m_currentState.A = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::X))
+	{
+		m_controller.m_currentState.X = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Y))
+	{
+		m_controller.m_currentState.Y = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::B))
+	{
+		m_controller.m_currentState.B = true;
+	}
+
+	// Dpad
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		m_controller.m_currentState.DpadLeft = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		m_controller.m_currentState.DpadRight = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		m_controller.m_currentState.DpadUp = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		m_controller.m_currentState.DpadDown = true;
+	}
+
+	// Bumper buttons
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::LControl))
+	{
+		m_controller.m_currentState.LB = true;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::RControl))
+	{
+		m_controller.m_currentState.RB = true;
+	}
+}
+
+#endif // KEYBOARD_DEBUG
+
+/////////////////////////////////////////////////////////////////////////////

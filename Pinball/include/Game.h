@@ -1,10 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
 
+#define KEYBOARD_DEBUG
+
 #include <SFML/Graphics.hpp>
 #include "ScreenManager.h"
 #include <iostream>
 #include <array>
+#include "Xbox360Controller.h"
 
 class Game
 {
@@ -25,6 +28,10 @@ private:
 	void render();
 	void loadFont();
 
+#ifdef KEYBOARD_DEBUG
+	void processKeyboardInput();
+#endif // KEYBOARD_DEBUG
+
 	// *** Objects ***
 	sf::RenderWindow m_window;
 
@@ -39,5 +46,7 @@ private:
 	bool m_exitGame;
 
 	sf::Font m_font;
+
+	Xbox360Controller m_controller;
 };
 #endif

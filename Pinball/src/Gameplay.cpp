@@ -102,6 +102,7 @@ Gameplay::Gameplay(sf::Font& t_font, std::function<void(ScreenManager*, ScreenTy
 	m_mushroomBumpers.at(2).setPosition(sf::Vector2f{ 300.0f, 400.0f });
 
 	m_spring.setPosition({ 550.0f, 800.0f });
+
 }
 
 ///////////////////////////////////////////////////////////////
